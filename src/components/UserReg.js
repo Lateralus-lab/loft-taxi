@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 function UserReg() {
-  const [yourEmail, setYourEmail] = useState("");
-  const [yourName, setYourName] = useState("");
-  const [yourSurname, setYourSurname] = useState("");
-  const [yourPassword, setYourPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [password, setPassword] = useState("");
 
   const hadleSubmitReg = (e) => {
     // Prevent default page reload
@@ -19,32 +19,32 @@ function UserReg() {
       <form onSubmit={hadleSubmitReg}>
         <div className="form-group">
           <input
-            value={yourEmail}
+            value={email}
             type="email"
             placeholder="Your e-mail adress*"
-            onChange={(e) => setYourEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form-group">
           <input
-            value={yourName}
+            value={name}
             type="text"
             placeholder="First Name*"
-            onChange={(e) => setYourName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
-            value={yourSurname}
+            value={surname}
             type="text"
             placeholder="Surname*"
-            onChange={(e) => setYourSurname(e.target.value)}
+            onChange={(e) => setSurname(e.target.value)}
           />
         </div>
         <div className="form-group">
           <input
-            value={yourPassword}
+            value={password}
             type="password"
             placeholder="*********"
-            onChange={(e) => setYourPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <input type="submit" value="Register" onSubmit={hadleSubmitReg} />
