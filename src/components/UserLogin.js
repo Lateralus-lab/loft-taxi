@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function UserLogin() {
+function UserLogin({ isLoggedIn, seIsLoggedIn }) {
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -33,7 +33,11 @@ function UserLogin() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <input type="submit" value="Login" onSubmit={handleSubmitChange} />
+        <input
+          type="submit"
+          value="Login"
+          onClick={() => seIsLoggedIn(!isLoggedIn)}
+        />
       </form>
       <div>
         <p>New user?</p>

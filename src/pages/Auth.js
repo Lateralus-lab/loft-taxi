@@ -3,14 +3,18 @@ import React, { useState } from "react";
 import UserLogin from "../components/UserLogin";
 import UserReg from "../components/UserReg";
 
-function Auth() {
+function Auth({ isLoggedIn, seIsLoggedIn }) {
   const [isRegistered, setIsRegistered] = useState(true);
 
   return (
     <div>
-      {isRegistered ? <UserLogin /> : <UserReg />}
+      {isRegistered ? (
+        <UserLogin isLoggedIn={isLoggedIn} seIsLoggedIn={seIsLoggedIn} />
+      ) : (
+        <UserReg />
+      )}
       <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
-        {isRegistered ? "Sign in" : "Sign up"}
+        {isRegistered ? "Sign up" : "Sign up"}
       </button>
     </div>
   );

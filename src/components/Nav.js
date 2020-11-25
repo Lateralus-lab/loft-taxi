@@ -1,12 +1,28 @@
 import React from "react";
 
-function Nav() {
+function Nav({ onLinkClick }) {
   return (
-    <div>
-      <ul className="nav-list">
-        <li>Map</li>
-        <li>Profile</li>
-        <li>Sign out</li>
+    <div className="nav">
+      <ul className="nav-menu">
+        <li className="menu-item">
+          <a className="menu-link" href="#" onClick={() => onLinkClick("main")}>
+            Map
+          </a>
+        </li>
+        <li className="menu-item">
+          <a
+            className="menu-link"
+            href="#"
+            onClick={() => onLinkClick("profile")}
+          >
+            Profile
+          </a>
+        </li>
+        <li className="menu-item">
+          <a className="menu-link" href="#" onClick={() => onLinkClick("auth")}>
+            Sign out
+          </a>
+        </li>
       </ul>
     </div>
   );

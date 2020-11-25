@@ -6,6 +6,27 @@ ul {
   text-align: center;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  max-width: 450px;
+  width: 100%;
+}
+
+.menu-link {
+  margin-left: 20px;
+
+  text-decoration: none;
+  color: #000000;
+}
+
 form {
   margin: 0 auto;
   width: 450px;
@@ -18,13 +39,3 @@ form {
   align-items: center;
   width: 100%;
 }
-
-.nav-list {
-  display: flex;
-}
-
-.nav-list > li {
-  margin-right: 10px;
-}
-
-
