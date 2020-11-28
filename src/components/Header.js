@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 // Import components
-import Nav from "../components/Nav";
-import Logo from "../components/Logo";
+import Nav from '../components/Nav';
+import Logo from '../components/Logo';
 
-function Header({ onLinkClick }) {
+const Header = ({ setCurrentPage }) => {
   return (
     <div className="header">
       <Logo />
-      <Nav onLinkClick={onLinkClick} />
+      <Nav setCurrentPage={setCurrentPage} />
     </div>
   );
-}
+};
 
 export default Header;

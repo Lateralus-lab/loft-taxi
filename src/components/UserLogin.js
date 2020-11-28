@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-function UserLogin({ isLoggedIn, seIsLoggedIn }) {
-  const [firstName, setFirstName] = useState("");
-  const [password, setPassword] = useState("");
+const UserLogin = ({ currentPage, setCurrentPage }) => {
+  const [firstName, setFirstName] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmitChange = (e) => {
     // Prevent default page reload
     e.preventDefault();
 
-    console.log("Youre logged in!");
+    console.log('Youre logged in!');
   };
 
   return (
@@ -16,18 +16,20 @@ function UserLogin({ isLoggedIn, seIsLoggedIn }) {
       <h2>Login</h2>
       <form onSubmit={handleSubmitChange}>
         <div className="form-group">
-          <label>Your email</label>
+          <label htmlFor="email">Your email</label>
           <input
             value={firstName}
             type="email"
             placeholder="Email@mail.com"
+            id="email"
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label>Your password</label>
+          <label htmlFor="password">Your password</label>
           <input
             value={password}
+            id="password"
             type="password"
             placeholder="*********"
             onChange={(e) => setPassword(e.target.value)}
@@ -36,7 +38,7 @@ function UserLogin({ isLoggedIn, seIsLoggedIn }) {
         <input
           type="submit"
           value="Login"
-          onClick={() => seIsLoggedIn(!isLoggedIn)}
+          onClick={() => setCurrentPage('main')}
         />
       </form>
       <div>
@@ -44,6 +46,6 @@ function UserLogin({ isLoggedIn, seIsLoggedIn }) {
       </div>
     </div>
   );
-}
+};
 
 export default UserLogin;

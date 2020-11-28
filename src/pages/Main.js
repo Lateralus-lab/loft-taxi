@@ -1,13 +1,11 @@
-import React from "react";
-// Import components
-import Header from "../components/Header";
+import React from 'react';
 
-function Map() {
+const Map = () => {
   return (
     <div>
-      <Header />
+      <div>Main</div>
     </div>
   );
-}
+};
 
 export default Map;

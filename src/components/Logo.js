@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-function Logo() {
+const Logo = () => {
   return <div className="logo">Loft-Taxi</div>;
-}
+};
 
 export default Logo;

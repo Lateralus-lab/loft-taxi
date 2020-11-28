@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 // Import components
-import UserLogin from "../components/UserLogin";
-import UserReg from "../components/UserReg";
+import UserLogin from '../components/UserLogin';
+import UserReg from '../components/UserReg';
 
-function Auth({ isLoggedIn, seIsLoggedIn }) {
+const Auth = ({ currentPage, setCurrentPage }) => {
   const [isRegistered, setIsRegistered] = useState(true);
 
   return (
     <div>
       {isRegistered ? (
-        <UserLogin isLoggedIn={isLoggedIn} seIsLoggedIn={seIsLoggedIn} />
+        <UserLogin currentPage={currentPage} setCurrentPage={setCurrentPage} />
       ) : (
-        <UserReg />
+        <UserReg currentPage={currentPage} setCurrentPage={setCurrentPage} />
       )}
       <button type="button" onClick={() => setIsRegistered(!isRegistered)}>
-        {isRegistered ? "Sign up" : "Sign up"}
+        {isRegistered ? 'Sign up' : 'Sign up'}
       </button>
     </div>
   );
-}
+};
 
 export default Auth;

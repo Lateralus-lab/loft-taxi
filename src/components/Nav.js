@@ -1,31 +1,30 @@
-import React from "react";
+import React from 'react';
 
-function Nav({ onLinkClick }) {
+const Nav = ({ setCurrentPage }) => {
   return (
     <div className="nav">
       <ul className="nav-menu">
         <li className="menu-item">
-          <a className="menu-link" href="#" onClick={() => onLinkClick("main")}>
+          <button className="menu-link" onClick={() => setCurrentPage('main')}>
             Map
-          </a>
+          </button>
         </li>
         <li className="menu-item">
-          <a
+          <button
             className="menu-link"
-            href="#"
-            onClick={() => onLinkClick("profile")}
+            onClick={() => setCurrentPage('profile')}
           >
             Profile
-          </a>
+          </button>
         </li>
         <li className="menu-item">
-          <a className="menu-link" href="#" onClick={() => onLinkClick("auth")}>
+          <button className="menu-link" onClick={() => setCurrentPage('auth')}>
             Sign out
-          </a>
+          </button>
         </li>
       </ul>
     </div>
   );
-}
+};
 
 export default Nav;
