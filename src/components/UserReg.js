@@ -9,8 +9,6 @@ const UserReg = ({ setCurrentPage }) => {
   const hadleSubmitReg = (e) => {
     // Prevent default page reload
     e.preventDefault();
-
-    console.log('Youre registed user!');
   };
 
   return (

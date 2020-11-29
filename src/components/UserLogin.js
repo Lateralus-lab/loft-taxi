@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 
-const UserLogin = ({ currentPage, setCurrentPage }) => {
+const UserLogin = ({ setCurrentPage }) => {
   const [firstName, setFirstName] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmitChange = (e) => {
     // Prevent default page reload
     e.preventDefault();
-
-    console.log('Youre logged in!');
   };
 
   return (
