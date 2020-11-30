@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const UserReg = ({ setCurrentPage }) => {
+const UserReg = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [password, setPassword] = useState('');
 
   const hadleSubmitReg = (e) => {
-    // Prevent default page reload
     e.preventDefault();
   };
 
@@ -45,17 +45,20 @@ const UserReg = ({ setCurrentPage }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <input
-          type="submit"
-          value="Register"
-          onClick={() => setCurrentPage('main')}
-        />
+        <input type="submit" value="Register" />
       </form>
       <div>
         <p>Already have an account?</p>
       </div>
     </div>
   );
+};
+
+UserReg.propTypes = {
+  email: PropTypes.string,
+  name: PropTypes.string,
+  surname: PropTypes.string,
+  password: PropTypes.string,
 };
 
 export default UserReg;

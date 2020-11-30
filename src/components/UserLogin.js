@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../AuthContext';
+import PropTypes from 'prop-types';
 
-const UserLogin = ({ setCurrentPage }) => {
-  const [firstName, setFirstName] = useState('');
-  const [password, setPassword] = useState('');
+const UserLogin = () => {
+  const { userSignIn } = useContext(AuthContext);
+  const [email, setEmail] = useState('guest@email.com');
+  const [password, setPassword] = useState('123');
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const handleSubmitChange = (e) => {
-    // Prevent default page reload
     e.preventDefault();
+
+    userSignIn(email, password, msgError);
+  };
+
+  const msgError = () => {
+    setErrorMessage(true);
   };
 
   return (
@@ -16,11 +25,11 @@ const UserLogin = ({ setCurrentPage }) => {
         <div className="form-group">
           <label htmlFor="email">Your email</label>
           <input
-            value={firstName}
+            value={email}
             type="email"
             placeholder="Email@mail.com"
             id="email"
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -33,17 +42,23 @@ const UserLogin = ({ setCurrentPage }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <input
-          type="submit"
-          value="Login"
-          onClick={() => setCurrentPage('main')}
-        />
+        {errorMessage ? (
+          <div>The username or password you entered is incorrect</div>
+        ) : (
+          ''
+        )}
+        <input type="submit" value="Login" />
       </form>
       <div>
         <p>New user?</p>
       </div>
     </div>
   );
+};
+
+UserLogin.propTypes = {
+  email: PropTypes.string,
+  password: PropTypes.string,
 };
 
 export default UserLogin;
