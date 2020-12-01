@@ -28,8 +28,6 @@ const App = () => {
       setCurrentPage('main');
     } else {
       msgError();
-
-      console.log('Not working');
     }
   };
 
@@ -41,6 +39,8 @@ const App = () => {
   return (
     <AuthContext.Provider
       value={{
+        isLoggedIn,
+        setIsLoggedIn,
         userSignIn,
         userSignOut,
       }}

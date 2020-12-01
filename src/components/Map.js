@@ -10,12 +10,15 @@ const Map = () => {
       'pk.eyJ1IjoibGF0ZXJhbHV6IiwiYSI6ImNraTNjamR3MzFtcWczNG9hNHgyM2hpN24ifQ.BtoSnjdsU_mvncszvjL-qQ';
 
     const initializeMap = ({ setMap, mapContainer }) => {
+      // eslint-disable-next-line
       const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v9',
         center: [-0.118092, 51.509865],
         zoom: 10,
       });
+
+      return () => map.remove();
     };
 
     if (!map) initializeMap({ setMap, mapContainer });
