@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../AuthContext';
+import PropTypes from 'prop-types';
 
 const Nav = ({ setCurrentPage }) => {
   const { userSignOut } = useContext(AuthContext);
@@ -31,3 +32,7 @@ const Nav = ({ setCurrentPage }) => {
 };
 
 export default Nav;
+
+Nav.propTypes = {
+  setCurrentPage: PropTypes.func.isRequired,
+};

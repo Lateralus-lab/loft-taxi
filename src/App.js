@@ -40,7 +40,6 @@ const App = () => {
     <AuthContext.Provider
       value={{
         isLoggedIn,
-        setIsLoggedIn,
         userSignIn,
         userSignOut,
       }}

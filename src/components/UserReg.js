@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
 const UserReg = () => {
   const [email, setEmail] = useState('');
@@ -52,13 +51,6 @@ const UserReg = () => {
       </div>
     </div>
   );
-};
-
-UserReg.propTypes = {
-  email: PropTypes.string,
-  name: PropTypes.string,
-  surname: PropTypes.string,
-  password: PropTypes.string,
 };
 
 export default UserReg;

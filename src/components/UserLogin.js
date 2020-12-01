@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthContext';
-import PropTypes from 'prop-types';
 
 const UserLogin = () => {
   const { userSignIn } = useContext(AuthContext);
@@ -54,11 +53,6 @@ const UserLogin = () => {
       </div>
     </div>
   );
-};
-
-UserLogin.propTypes = {
-  email: PropTypes.string,
-  password: PropTypes.string,
 };
 
 export default UserLogin;
