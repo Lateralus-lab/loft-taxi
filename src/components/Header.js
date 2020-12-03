@@ -16,5 +16,5 @@ const Header = ({ setCurrentPage }) => {
 export default Header;
 
 Header.propTypes = {
-  setCurrentPage: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func,
 };

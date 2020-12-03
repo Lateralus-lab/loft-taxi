@@ -34,5 +34,5 @@ const Nav = ({ setCurrentPage }) => {
 export default Nav;
 
 Nav.propTypes = {
-  setCurrentPage: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func,
 };
