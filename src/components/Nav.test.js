@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, getByText } from '@testing-library/react';
+import { render, fireEvent, getByText, screen } from '@testing-library/react';
 import Nav from './Nav';
 import { AuthContext } from '../AuthContext';
 
@@ -21,5 +21,8 @@ describe('on nav link click', () => {
 
     fireEvent.click(getByText('Profile'));
     expect(setCurrentPage).toHaveBeenCalledWith('profile');
+
+    expect(container.innerHTML).toMatch('Sign out');
+    expect(screen.getByText('Sign out')).toBeTruthy();
   });
 });

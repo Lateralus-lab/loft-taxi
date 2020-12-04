@@ -1,19 +1,21 @@
 import React from 'react';
-import Header from './Header';
+import UserLogin from './UserLogin';
 import { render } from '@testing-library/react';
 import { AuthContext } from '../AuthContext';
 
-describe('Header', () => {
+describe('UserLogin', () => {
   it('renders correctly', () => {
     const { container } = render(
       <AuthContext.Provider
         value={{
-          userSignOut: jest.fn(),
+          userSignIn: jest.fn(),
         }}
       >
-        <Header />
+        <UserLogin />
       </AuthContext.Provider>
     );
-    expect(container.firstChild.classList.contains('header')).toBe(true);
+
+    expect(container.innerHTML).toMatch('Email');
+    expect(container.innerHTML).toMatch('password');
   });
 });
