@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-function UserReg() {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [password, setPassword] = useState("");
+const UserReg = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [password, setPassword] = useState('');
 
   const hadleSubmitReg = (e) => {
-    // Prevent default page reload
     e.preventDefault();
-
-    console.log("Youre registed user!");
   };
 
   return (
@@ -47,13 +44,13 @@ function UserReg() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <input type="submit" value="Register" onSubmit={hadleSubmitReg} />
+        <input type="submit" value="Register" />
       </form>
       <div>
         <p>Already have an account?</p>
       </div>
     </div>
   );
-}
+};
 
 export default UserReg;

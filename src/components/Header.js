@@ -1,13 +1,20 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 // Import components
-import Nav from "../components/Nav";
+import Nav from '../components/Nav';
+import Logo from '../components/Logo';
 
-function Header() {
+const Header = ({ setCurrentPage }) => {
   return (
-    <div>
-      <Nav />
+    <div className="header">
+      <Logo />
+      <Nav setCurrentPage={setCurrentPage} />
     </div>
   );
-}
+};
 
 export default Header;
+
+Header.propTypes = {
+  setCurrentPage: PropTypes.func,
+};
