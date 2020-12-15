@@ -1,5 +1,5 @@
 import React from 'react';
-import UserReg from './UserReg';
+import UserReg from '../components/UserReg';
 import { render } from '@testing-library/react';
 import { AuthContext } from '../AuthContext';
 

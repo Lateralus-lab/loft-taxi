@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, getByText, screen } from '@testing-library/react';
-import Nav from './Nav';
+import Nav from '../components/Nav';
 import { AuthContext } from '../AuthContext';
 
 describe('on nav link click', () => {
