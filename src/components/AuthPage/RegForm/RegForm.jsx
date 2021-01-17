@@ -2,7 +2,13 @@ import React from 'react';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 
-const RegForm = () => {
+const RegForm = (props) => {
+  const UserReg = (e) => {
+    e.preventDefault();
+
+    props.setIsRegistered(true);
+  };
+
   return (
     <DivCentered>
       <form>
@@ -24,7 +30,9 @@ const RegForm = () => {
         </Button>
         <div>
           <p>Already have an acount?</p>
-          <a href="/">Login</a>
+          <a href="/" onClick={UserReg}>
+            Login
+          </a>
         </div>
       </form>
     </DivCentered>

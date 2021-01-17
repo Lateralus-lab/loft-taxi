@@ -3,6 +3,12 @@ import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 
 const LoginForm = (props) => {
+  const UserReg = (e) => {
+    e.preventDefault();
+
+    props.setIsRegistered(false);
+  };
+
   return (
     <DivCentered>
       <form>
@@ -26,7 +32,9 @@ const LoginForm = (props) => {
         </Button>
         <div>
           <p>Dont have an account?</p>
-          <a href="/">Register</a>
+          <a href="/" onClick={UserReg}>
+            Register
+          </a>
         </div>
       </form>
     </DivCentered>
