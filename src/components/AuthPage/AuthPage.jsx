@@ -1,9 +1,16 @@
 import React from 'react';
+// Import components
+import LoginForm from './LoginForm/LoginForm';
+import RegForm from './RegForm/RegForm';
 
-const AuthPage = () => {
+const AuthPage = (props) => {
   return (
     <div>
-      <h3>AuthPage</h3>
+      {<LoginForm /> ? (
+        <LoginForm setCurrenPage={props.setCurrenPage} />
+      ) : (
+        <RegForm />
+      )}
     </div>
   );
 };

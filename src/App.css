@@ -27,10 +27,6 @@ ul {
   color: #000000;
 }
 
-form {
-  margin: 0 auto;
-  width: 450px;
-}
 
 .form-group {
   display: flex;
