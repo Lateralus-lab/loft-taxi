@@ -4,7 +4,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import AuthPage from './components/AuthPage/AuthPage';
 import MainPage from './components/MainPage/MainPage';
-import Profile from './components/MainPage/Profile';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 const App = () => {
   const [currentPage, setCurrenPage] = useState('auth');
@@ -12,7 +12,7 @@ const App = () => {
   const pages = {
     auth: <AuthPage setCurrenPage={setCurrenPage} />,
     main: <MainPage />,
-    profile: <Profile />,
+    profile: <ProfilePage />,
   };
 
   return (
