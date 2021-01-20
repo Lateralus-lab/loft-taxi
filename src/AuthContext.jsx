@@ -7,22 +7,24 @@ export const AuthProvider = (props) => {
   const validPass = '123123';
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const onSubmitLogin = (email, password) => {
-    if (email !== validEmail || password !== validPass) {
+  const onLogin = (email, password, setMsgError) => {
+    if (email === validEmail && password === validPass) {
       setIsLoggedIn(true);
-      console.log('Right!');
+      return true;
     } else {
-      console.log('Wrong!');
+      setMsgError(true);
+      setIsLoggedIn(false);
     }
+    return false;
   };
 
-  const onSubmitLogout = () => {
+  const onLogout = () => {
     setIsLoggedIn(false);
   };
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, onSubmitLogin, onSubmitLogout }}
+      value={{ isLoggedIn, setIsLoggedIn, onLogin, onLogout }}
     >
       {props.children}
     </AuthContext.Provider>

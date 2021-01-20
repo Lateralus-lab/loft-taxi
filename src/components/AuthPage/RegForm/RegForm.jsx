@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const RegForm = (props) => {
   const UserReg = (e) => {
@@ -45,3 +46,9 @@ const DivCentered = styled.div`
 `;
 
 export default RegForm;
+
+RegForm.propTypes = {
+  email: PropTypes.string,
+  name: PropTypes.string,
+  password: PropTypes.string,
+};

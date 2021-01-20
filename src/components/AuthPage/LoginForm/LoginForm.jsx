@@ -2,17 +2,20 @@ import React, { useContext, useState } from 'react';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import { AuthContext } from '../../../AuthContext';
+import PropTypes from 'prop-types';
 
 const LoginForm = (props) => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { onSubmitLogin } = useContext(AuthContext);
+  const { onLogin } = useContext(AuthContext);
+  const [msgError, setMsgError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onSubmitLogin(email, password);
+    if (onLogin(email, password, setMsgError)) {
+      props.setCurrenPage('main');
+    } else props.setCurrenPage('auth');
   };
 
   const UserReg = (e) => {
@@ -48,6 +51,7 @@ const LoginForm = (props) => {
         <Button variant="contained" color="primary" type="submit">
           Login
         </Button>
+        {msgError ? <div>Your email or password is incorrect</div> : null}
         <div>
           <p>Dont have an account?</p>
           <a href="/" onClick={UserReg}>
@@ -70,3 +74,8 @@ const DivCentered = styled.div`
 `;
 
 export default LoginForm;
+
+LoginForm.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string,
+};

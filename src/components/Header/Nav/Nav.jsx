@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { AuthContext } from '../../../AuthContext';
 
 const Nav = (props) => {
+  const { onLogout } = useContext(AuthContext);
+
   return (
     <NavStyled>
       <nav>
@@ -25,13 +28,7 @@ const Nav = (props) => {
             </button>
           </li>
           <li>
-            <button
-              onClick={() => {
-                props.setCurrenPage('auth');
-              }}
-            >
-              Sign out
-            </button>
+            <button onClick={() => onLogout()}>Sign out</button>
           </li>
         </ul>
       </nav>
