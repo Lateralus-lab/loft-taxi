@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 import LoginForm from './LoginForm/LoginForm';
 import RegForm from './RegForm/RegForm';
 
-const AuthPage = (props) => {
+const AuthPage = ({ setCurrenPage }) => {
   const [isRegistered, setIsRegistered] = useState(true);
 
   return (
     <div>
       {isRegistered ? (
         <LoginForm
-          setCurrenPage={props.setCurrenPage}
+          setCurrenPage={setCurrenPage}
           setIsRegistered={setIsRegistered}
         />
       ) : (

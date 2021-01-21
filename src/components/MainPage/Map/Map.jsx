@@ -5,10 +5,10 @@ const Map = () => {
   const [map] = useState(null);
   const mapContainer = useRef(null);
 
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoibGF0ZXJhbHV6IiwiYSI6ImNraTNjamR3MzFtcWczNG9hNHgyM2hpN24ifQ.BtoSnjdsU_mvncszvjL-qQ';
-
   useEffect(() => {
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoibGF0ZXJhbHV6IiwiYSI6ImNraTNjamR3MzFtcWczNG9hNHgyM2hpN24ifQ.BtoSnjdsU_mvncszvjL-qQ';
+
     const initializeMap = ({ mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
@@ -23,7 +23,7 @@ const Map = () => {
     if (!map) initializeMap({ mapContainer });
   }, [map]);
 
-  return <div ref={(el) => (mapContainer.current = el)} />;
+  return <div data-testid="map" ref={(el) => (mapContainer.current = el)} />;
 };
 
 export default Map;

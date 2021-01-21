@@ -1,18 +1,9 @@
 import React from 'react';
-import App from './App';
 import { render } from '@testing-library/react';
-import { AuthContext } from './AuthContext';
+import Header from './Header';
+import { AuthContext } from '../../AuthContext';
 
-jest.mock('mapbox-gl', () => ({
-  Map: jest.fn(() => ({ remove: () => {} })),
-}));
-
-jest.mock('./components/AuthPage/AuthPage', () => ({
-  __esModule: true,
-  default: () => <div>Auth</div>,
-}));
-
-describe('App', () => {
+describe('Header', () => {
   it('renders correctly', () => {
     const { container } = render(
       <AuthContext.Provider
@@ -23,9 +14,9 @@ describe('App', () => {
           onLogout: jest.fn(),
         }}
       >
-        <App />
+        <Header />
       </AuthContext.Provider>
     );
-    expect(container.innerHTML).toMatch('Auth');
+    expect(container.innerHTML).toMatch('LoftTaxi');
   });
 });

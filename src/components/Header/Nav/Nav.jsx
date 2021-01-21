@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { AuthContext } from '../../../AuthContext';
+import PropTypes from 'prop-types';
 
-const Nav = (props) => {
+const Nav = ({ setCurrenPage }) => {
   const { onLogout } = useContext(AuthContext);
 
   return (
@@ -10,22 +11,10 @@ const Nav = (props) => {
       <nav>
         <ul>
           <li>
-            <button
-              onClick={() => {
-                props.setCurrenPage('main');
-              }}
-            >
-              Map
-            </button>
+            <button onClick={() => setCurrenPage('main')}>Map</button>
           </li>
           <li>
-            <button
-              onClick={() => {
-                props.setCurrenPage('profile');
-              }}
-            >
-              Profile
-            </button>
+            <button onClick={() => setCurrenPage('profile')}>Profile</button>
           </li>
           <li>
             <button onClick={() => onLogout()}>Sign out</button>
@@ -52,3 +41,7 @@ const NavStyled = styled.div`
 `;
 
 export default Nav;
+
+Nav.propTypes = {
+  onLogout: PropTypes.func,
+};
