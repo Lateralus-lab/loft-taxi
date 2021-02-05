@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { AuthContext } from '../../../AuthContext';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Nav = ({ setCurrenPage }) => {
+const Nav = () => {
   const { onLogout } = useContext(AuthContext);
 
   return (
@@ -11,10 +12,10 @@ const Nav = ({ setCurrenPage }) => {
       <nav>
         <ul>
           <li>
-            <button onClick={() => setCurrenPage('main')}>Map</button>
+            <Link to="/main">Map</Link>
           </li>
           <li>
-            <button onClick={() => setCurrenPage('profile')}>Profile</button>
+            <Link to="/profile">Profile</Link>
           </li>
           <li>
             <button onClick={() => onLogout()}>Sign out</button>

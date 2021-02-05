@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import './App.css';
 import { AuthContext } from './AuthContext';
+import { Route, Switch } from 'react-router-dom';
 // Import components
 import Header from './components/Header/Header';
 import AuthPage from './components/AuthPage/AuthPage';
@@ -21,6 +22,11 @@ const App = () => {
     <div>
       {isLoggedIn ? header : null}
       {!isLoggedIn ? pages.auth : pages[currentPage]}
+      <Switch>
+        <Route exact path="/" component={AuthPage} />
+        <Route exact path="/main" component={MainPage} />
+        <Route exact path="/profile" component={ProfilePage} />
+      </Switch>
     </div>
   );
 };
