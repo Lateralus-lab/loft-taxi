@@ -1,21 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
-import { AuthContext } from '../../../AuthContext';
 import PropTypes from 'prop-types';
 
 const LoginForm = ({ setCurrenPage, setIsRegistered }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { onLogin } = useContext(AuthContext);
   const [msgError, setMsgError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (onLogin(email, password, setMsgError)) {
-      setCurrenPage('main');
-    } else setCurrenPage('auth');
   };
 
   const UserReg = (e) => {

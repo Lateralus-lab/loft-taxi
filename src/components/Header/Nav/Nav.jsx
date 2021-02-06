@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { AuthContext } from '../../../AuthContext';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Nav = () => {
-  const { onLogout } = useContext(AuthContext);
-
   return (
     <NavStyled>
       <nav>
@@ -17,9 +14,7 @@ const Nav = () => {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          <li>
-            <button onClick={() => onLogout()}>Sign out</button>
-          </li>
+          <li>{/* <button onClick={() => onLogout()}>Sign out</button> */}</li>
         </ul>
       </nav>
     </NavStyled>
