@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuthRequest } from '../../../actions/types';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({ setCurrenPage, setIsRegistered }) => {
+const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msgError, setMsgError] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    dispatch(fetchAuthRequest({ email, password }));
   };
 
   const UserReg = (e) => {
     e.preventDefault();
-
-    setIsRegistered(false);
   };
 
   return (

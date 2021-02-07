@@ -1,4 +1,5 @@
 import { compose, createStore, applyMiddleware } from 'redux';
+import { authMiddlaware } from '../middleware/authMiddlaware';
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
 
@@ -9,6 +10,11 @@ const composeEnhancers =
 
 const reducers = combineReducers({ auth: authReducer });
 
-const store = createStore(reducers, composeEnhancers(applyMiddleware()));
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(authMiddlaware))
+);
+
+window.store = store;
 
 export default store;
