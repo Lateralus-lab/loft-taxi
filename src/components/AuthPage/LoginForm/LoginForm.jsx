@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAuthRequest } from '../../../actions/types';
+import { authenticate } from '../../../redux/actions/actions';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const LoginForm = () => {
+const LoginForm = ({ dispatch, setIsRegistered }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [msgError, setMsgError] = useState(false);
-  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(fetchAuthRequest({ email, password }));
+    dispatch(authenticate(email, password));
   };
 
-  const UserReg = (e) => {
+  const handleUser = (e) => {
     e.preventDefault();
+
+    setIsRegistered(false);
   };
 
   return (
@@ -46,13 +45,13 @@ const LoginForm = () => {
           />
         </div>
         <Button variant="contained" color="primary" type="submit">
-          Login
+          Sign in
         </Button>
-        {msgError ? <div>Your email or password is incorrect</div> : null}
+        {/* {msgError ? <div>Your email or password is incorrect</div> : null} */}
         <div>
           <p>Dont have an account?</p>
-          <a href="/" onClick={UserReg}>
-            Register
+          <a href="/" onClick={handleUser}>
+            Create account
           </a>
         </div>
       </form>

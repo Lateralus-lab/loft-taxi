@@ -3,11 +3,11 @@ import styled from 'styled-components';
 // Import components
 import Nav from './Nav/Nav';
 
-const Header = (props) => {
+const Header = () => {
   return (
     <HeaderStyled>
       <h3>LoftTaxi</h3>
-      <Nav setCurrenPage={props.setCurrenPage} />
+      <Nav />
     </HeaderStyled>
   );
 };

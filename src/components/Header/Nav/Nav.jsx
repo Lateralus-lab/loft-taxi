@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../../redux/actions/actions';
 import PropTypes from 'prop-types';
 
 const Nav = () => {
+  const dispatch = useDispatch();
+
   return (
     <NavStyled>
       <nav>
@@ -14,7 +18,11 @@ const Nav = () => {
           <li>
             <Link to="/profile">Profile</Link>
           </li>
-          <li>{/* <button onClick={() => onLogout()}>Sign out</button> */}</li>
+          <li>
+            <Link to="/" onClick={() => dispatch(signOut())}>
+              Sign out
+            </Link>
+          </li>
         </ul>
       </nav>
     </NavStyled>

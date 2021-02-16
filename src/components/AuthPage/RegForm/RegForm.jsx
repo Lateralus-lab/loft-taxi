@@ -3,11 +3,11 @@ import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const RegForm = (props) => {
-  const UserReg = (e) => {
+const RegForm = ({ setIsRegistered }) => {
+  const handleUser = (e) => {
     e.preventDefault();
 
-    props.setIsRegistered(true);
+    setIsRegistered(true);
   };
 
   return (
@@ -27,12 +27,12 @@ const RegForm = (props) => {
           <Input name="password" type="password" placeholder="Password" />
         </div>
         <Button variant="contained" color="primary">
-          Register
+          Sign up
         </Button>
         <div>
-          <p>Already have an acount?</p>
-          <a href="/" onClick={UserReg}>
-            Login
+          <p>Already have an account?</p>
+          <a href="/" onClick={handleUser}>
+            Sign in
           </a>
         </div>
       </form>
