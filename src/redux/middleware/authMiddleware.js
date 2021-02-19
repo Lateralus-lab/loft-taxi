@@ -1,36 +1,23 @@
 import { AUTHENTICATE } from '../actions/types';
 import { signIn } from '../actions/actions';
+import { serverLogin } from '../api';
 
-const authMiddleware = (store) => (next) => (action) => {
+const authMiddleware = (store) => (next) => async (action) => {
   const result = next(action);
 
-  if (action.type === AUTHENTICATE) {
-    const authData = {
-      email: action.payload.email,
-      password: action.payload.password,
-    };
+  switch (action.type) {
+    case AUTHENTICATE: {
+      const { email, password } = action.payload;
+      const data = await serverLogin(email, password);
 
-    const fetchConfig = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(authData),
-    };
-
-    fetch('https://loft-taxi.glitch.me/auth', fetchConfig)
-      .then((resp) => resp.json())
-      .then((data) => {
-        if (data.success) {
-          store.dispatch(signIn(data.token));
-          localStorage.setItem('isLoggedIn', 'true');
-        } else {
-          console.log('failure');
-        }
-      });
+      if (data.success) {
+        store.dispatch(signIn(data.token));
+      }
+      break;
+    }
+    default:
+      return result;
   }
-
-  return result;
 };
 
 export default authMiddleware;
