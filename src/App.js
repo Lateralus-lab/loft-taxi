@@ -14,8 +14,6 @@ const App = () => {
   const history = useHistory();
   const mounted = useRef();
 
-  console.log(localStorage);
-
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true;

@@ -1,9 +1,17 @@
 import React from 'react';
+import { Typography } from '@material-ui/core';
+import ProfileForm from './ProfileForm/ProfileForm';
 
 const ProfilePage = () => {
   return (
     <div>
-      <h3>ProfilePage</h3>
+      <div>
+        <Typography className="form-title" variant="h4">
+          Profile
+        </Typography>
+        <div>Please fill out the form</div>
+      </div>
+      <ProfileForm />
     </div>
   );
 };
