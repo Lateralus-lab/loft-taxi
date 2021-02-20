@@ -22,3 +22,38 @@ export const serverLogin = async (email, password) => {
 
   return fetchData('https://loft-taxi.glitch.me/auth', params);
 };
+
+export const serverRegister = async (email, name, surname, password) => {
+  const regData = {
+    email: email,
+    name: name,
+    surname: surname,
+    password: password,
+  };
+  const params = {
+    ...fetchConfig,
+    body: JSON.stringify(regData),
+  };
+
+  return fetchData('https://loft-taxi.glitch.me/register', params);
+};
+
+export const serverProfile = async (
+  cardHolder,
+  cardNumber,
+  expiryDate,
+  cvc
+) => {
+  const profileData = {
+    cardHolder: cardHolder,
+    cardNumber: cardNumber,
+    expiryDate: expiryDate,
+    cvc: cvc,
+  };
+  const params = {
+    ...fetchConfig,
+    body: JSON.stringify(profileData),
+  };
+
+  return fetchData('https://loft-taxi.glitch.me/card', params);
+};

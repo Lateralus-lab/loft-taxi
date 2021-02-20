@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import { register } from '../../../redux/actions/actions';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const RegForm = ({ setIsRegistered }) => {
+const RegForm = ({ dispatch, setIsRegistered }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [password, setPassword] = useState('');
 
-  console.log(email);
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    dispatch(register(email, name, surname, password));
   };
 
   const handleUser = (e) => {
@@ -61,7 +62,7 @@ const RegForm = ({ setIsRegistered }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" type="submit">
           Sign up
         </Button>
         <div>

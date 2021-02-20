@@ -18,7 +18,11 @@ const AuthPage = () => {
           setIsRegistered={setIsRegistered}
         />
       ) : (
-        <RegForm setIsRegistered={setIsRegistered} />
+        <RegForm
+          isLoggedIn={isLoggedIn}
+          dispatch={dispatch}
+          setIsRegistered={setIsRegistered}
+        />
       )}
     </div>
   );

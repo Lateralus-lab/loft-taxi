@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import authReducer from './redux/reducers/authReducer';
+import profileReducer from './redux/reducers/profileReducer';
 import authMiddleware from './redux/middleware/authMiddleware';
 
 const saveToLocalStarage = (state) => {
@@ -31,6 +32,7 @@ const composeEnhancers =
 
 const allReducers = combineReducers({
   auth: authReducer,
+  profile: profileReducer,
 });
 
 const store = createStore(
