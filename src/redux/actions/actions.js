@@ -1,17 +1,19 @@
 import {
-  AUTHENTICATE,
-  SIGN_IN,
+  FETCH_AUTH_REQUEST,
+  FETCH_AUTH_FAILURE,
+  FETCH_AUTH_SUCCESS,
   SIGN_OUT,
   REGISTER,
   PROFILE_DATA,
 } from './types';
 
-export const signIn = () => ({ type: SIGN_IN });
-export const signOut = () => ({ type: SIGN_OUT });
-export const authenticate = (email, password) => ({
-  type: AUTHENTICATE,
+export const fetch_auth_request = (email, password) => ({
+  type: FETCH_AUTH_REQUEST,
   payload: { email, password },
 });
+export const fetch_auth_success = () => ({ type: FETCH_AUTH_SUCCESS });
+export const fetch_auth_failure = () => ({ type: FETCH_AUTH_FAILURE });
+export const signOut = () => ({ type: SIGN_OUT });
 export const register = (email, name, surname, password) => ({
   type: REGISTER,
   payload: { email, name, surname, password },

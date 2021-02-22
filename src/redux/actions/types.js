@@ -1,5 +1,6 @@
-export const SIGN_IN = 'SIGN_IN';
+export const FETCH_AUTH_REQUEST = 'FETCH_AUTH_REQUEST';
+export const FETCH_AUTH_SUCCESS = 'FETCH_AUTH_SUCCESS';
+export const FETCH_AUTH_FAILURE = 'FETCH_AUTH_FAILURE';
 export const SIGN_OUT = 'SIGN_OUT';
 export const REGISTER = 'REGISTER';
-export const AUTHENTICATE = 'AUTHENTICATE';
 export const PROFILE_DATA = 'PROFILE_DATA';

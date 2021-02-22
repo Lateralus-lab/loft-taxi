@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { authenticate } from '../../../redux/actions/actions';
+import { fetch_auth_request } from '../../../redux/actions/actions';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({ dispatch, setIsRegistered }) => {
+const LoginForm = ({ dispatch, isLoggedIn, setIsRegistered }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(authenticate(email, password));
+    dispatch(fetch_auth_request(email, password));
   };
 
   const handleUser = (e) => {
@@ -19,6 +19,11 @@ const LoginForm = ({ dispatch, setIsRegistered }) => {
 
     setIsRegistered(false);
   };
+
+  const loading = isLoggedIn.isFetching ? <div>Loading...</div> : null;
+  const errorMsg = isLoggedIn.msgError ? (
+    <div>Wrong user or password</div>
+  ) : null;
 
   return (
     <DivCentered>
@@ -47,7 +52,8 @@ const LoginForm = ({ dispatch, setIsRegistered }) => {
         <Button variant="contained" color="primary" type="submit">
           Sign in
         </Button>
-        {/* {msgError ? <div>Your email or password is incorrect</div> : null} */}
+        {loading}
+        {errorMsg}
         <div>
           <p>Dont have an account?</p>
           <a href="/" onClick={handleUser}>
