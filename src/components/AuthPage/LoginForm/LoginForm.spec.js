@@ -1,27 +1,23 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { render, fireEvent } from '@testing-library/react';
 import LoginForm from './LoginForm';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import { AuthContext } from '../../../AuthContext';
+
+const mockStore = {
+  getState: () => ({
+    auth: { isLoggedIn: true },
+  }),
+  subscribe: () => {},
+  dispatch: () => {},
+};
 
 describe('LoginForm', () => {
-  it('renders corectly', () => {
+  it('renders correctly', () => {
     const { getByPlaceholderText } = render(
-      <AuthContext.Provider
-        value={{
-          isLoggedI: jest.fn(),
-          setIsLoggedIn: jest.fn(),
-          onLogin: jest.fn(),
-          onLogout: jest.fn(),
-        }}
-      >
+      <Provider store={mockStore}>
         <LoginForm />
-      </AuthContext.Provider>
+      </Provider>
     );
-    expect(getByPlaceholderText('Your Email')).toHaveAttribute('name', 'email');
-    expect(getByPlaceholderText('Password')).toHaveAttribute(
-      'name',
-      'password'
-    );
+    expect(getByPlaceholderText('email')).toHaveAttribute('name', 'email');
   });
 });

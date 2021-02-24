@@ -3,8 +3,6 @@ import { fetch_auth_success, fetch_auth_failure } from '../actions/actions';
 import { serverLogin, serverProfile, serverRegister } from '../api';
 
 const authMiddleware = (store) => (next) => async (action) => {
-  const result = next(action);
-
   switch (action.type) {
     case FETCH_AUTH_REQUEST: {
       const { email, password } = action.payload;
@@ -33,7 +31,7 @@ const authMiddleware = (store) => (next) => async (action) => {
       }
       break;
     default:
-      return result;
+      return next(action);
   }
 };
 
