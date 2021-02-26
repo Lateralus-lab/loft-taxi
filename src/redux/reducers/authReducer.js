@@ -5,7 +5,7 @@ import {
   SIGN_OUT,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   isLoggedIn: false,
   isFetching: false,
   msgError: false,
