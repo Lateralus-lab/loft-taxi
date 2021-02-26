@@ -11,12 +11,16 @@ describe('ProfileForm', () => {
       dispatch: () => {},
     };
 
-    const { getByPlaceholderText } = render(
+    render(
       <Provider store={mockStore}>
         <ProfileForm />
       </Provider>
     );
 
-    expect(screen.getByTestId('name')).toHaveAttribute('required');
+    expect(screen.getByTestId('name')).toBeTruthy();
+    expect(screen.getByTestId('card-number')).toBeTruthy();
+    expect(screen.getByTestId('expiry')).toBeTruthy();
+    expect(screen.getByTestId('cvc')).toBeTruthy();
+    expect(screen.getByTestId('save-button')).toBeTruthy();
   });
 });

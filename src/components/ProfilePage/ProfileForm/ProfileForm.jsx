@@ -33,7 +33,7 @@ const ProfileForm = () => {
       </div>
       <div>
         <TextField
-          id="card-number"
+          data-testid="card-number"
           label="Card number"
           required
           value={cardNumber}
@@ -42,7 +42,7 @@ const ProfileForm = () => {
       </div>
       <div>
         <TextField
-          id="expiry"
+          data-testid="expiry"
           name="expiritation"
           variant="standard"
           label="MM/YY"
@@ -52,7 +52,7 @@ const ProfileForm = () => {
           onChange={(e) => setExpiryDate(e.target.value)}
         />
         <TextField
-          id="cvc"
+          data-testid="cvc"
           variant="standard"
           label="CVC"
           required
@@ -62,7 +62,7 @@ const ProfileForm = () => {
         />
       </div>
       <div>
-        <Button id="save-button" variant="contained" type="submit">
+        <Button data-testid="save-button" variant="contained" type="submit">
           Save
         </Button>
       </div>
