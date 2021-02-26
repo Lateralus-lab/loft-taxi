@@ -1,6 +1,6 @@
 import { PROFILE_DATA } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   cardHolder: '',
   cardNumber: '',
   expiryDate: '',
