@@ -1,27 +1,32 @@
 import React from 'react';
-import { render, fireEvent, getByText, screen } from '@testing-library/react';
-import { AuthContext } from '../../../AuthContext';
+import { render, fireEvent, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import Nav from './Nav';
 
 describe('Nav', () => {
-  it('redirects on page click', () => {
-    const setCurrenPage = jest.fn();
-    const { container, getByText } = render(
-      <AuthContext.Provider
-        value={{
-          onLogout: jest.fn(),
-        }}
-      >
-        <Nav setCurrenPage={setCurrenPage} />
-      </AuthContext.Provider>
+  it('it renders correctly with redux', () => {
+    const mockStore = {
+      getState: () => {},
+      subscribe: () => {},
+      dispatch: () => {},
+    };
+
+    const history = createMemoryHistory();
+
+    const { container } = render(
+      <Router history={history}>
+        <Provider store={mockStore}>
+          <Nav />
+        </Provider>
+      </Router>
     );
 
     fireEvent.click(screen.getByText('Map'));
-    expect(setCurrenPage).toHaveBeenCalledWith('main');
-
+    expect(container.innerHTML).toMatch('Map');
     fireEvent.click(screen.getByText('Profile'));
-    expect(setCurrenPage).toHaveBeenCalledWith('profile');
-
+    expect(container.innerHTML).toMatch('Profile');
     expect(container.innerHTML).toMatch('Sign out');
     expect(screen.getByText('Sign out')).toBeTruthy();
   });

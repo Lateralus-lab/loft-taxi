@@ -1,23 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { render, fireEvent } from '@testing-library/react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import LoginForm from './LoginForm';
 
-const mockStore = {
-  getState: () => ({
-    auth: { isLoggedIn: true },
-  }),
-  subscribe: () => {},
-  dispatch: () => {},
-};
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('LoginForm', () => {
   it('renders correctly', () => {
-    const { getByPlaceholderText } = render(
-      <Provider store={mockStore}>
-        <LoginForm />
-      </Provider>
-    );
-    expect(getByPlaceholderText('email')).toHaveAttribute('name', 'email');
+    const wrapper = shallow(<LoginForm />);
+    expect(wrapper.find('#email').prop('name')).toEqual('email');
+    expect(wrapper.find('#password').prop('name')).toEqual('password');
+    expect(wrapper.find('#signup-button')).toHaveLength(1);
   });
 });

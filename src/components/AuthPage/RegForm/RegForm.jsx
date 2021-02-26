@@ -30,6 +30,7 @@ const RegForm = ({ dispatch, setIsRegistered }) => {
         </div>
         <div>
           <Input
+            id="email"
             name="email"
             type="email"
             placeholder="Your Email"
@@ -39,6 +40,7 @@ const RegForm = ({ dispatch, setIsRegistered }) => {
         </div>
         <div>
           <Input
+            id="name"
             name="name"
             type="text"
             placeholder="Name"
@@ -46,6 +48,7 @@ const RegForm = ({ dispatch, setIsRegistered }) => {
             onChange={(e) => setName(e.target.value)}
           />
           <Input
+            id="surname"
             name="name"
             type="text"
             placeholder="Surname"
@@ -55,6 +58,7 @@ const RegForm = ({ dispatch, setIsRegistered }) => {
         </div>
         <div>
           <Input
+            id="password"
             name="password"
             type="password"
             placeholder="Password"
@@ -62,7 +66,12 @@ const RegForm = ({ dispatch, setIsRegistered }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button variant="contained" color="primary" type="submit">
+        <Button
+          id="signup-button"
+          variant="contained"
+          color="primary"
+          type="submit"
+        >
           Sign up
         </Button>
         <div>

@@ -6,20 +6,20 @@ import RegForm from './RegForm/RegForm';
 
 const AuthPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
-  const isLoggedIn = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   return (
     <div>
       {isRegistered ? (
         <LoginForm
-          isLoggedIn={isLoggedIn}
+          auth={auth}
           dispatch={dispatch}
           setIsRegistered={setIsRegistered}
         />
       ) : (
         <RegForm
-          isLoggedIn={isLoggedIn}
+          auth={auth}
           dispatch={dispatch}
           setIsRegistered={setIsRegistered}
         />

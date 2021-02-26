@@ -24,6 +24,7 @@ const ProfileForm = () => {
     <form noValidate autoComplete="off" onSubmit={handleSubmit}>
       <div>
         <TextField
+          data-testid="name"
           label="Name on card"
           required
           value={cardHolder}
@@ -32,6 +33,7 @@ const ProfileForm = () => {
       </div>
       <div>
         <TextField
+          id="card-number"
           label="Card number"
           required
           value={cardNumber}
@@ -40,6 +42,7 @@ const ProfileForm = () => {
       </div>
       <div>
         <TextField
+          id="expiry"
           name="expiritation"
           variant="standard"
           label="MM/YY"
@@ -49,6 +52,7 @@ const ProfileForm = () => {
           onChange={(e) => setExpiryDate(e.target.value)}
         />
         <TextField
+          id="cvc"
           variant="standard"
           label="CVC"
           required
@@ -58,7 +62,7 @@ const ProfileForm = () => {
         />
       </div>
       <div>
-        <Button variant="contained" type="submit">
+        <Button id="save-button" variant="contained" type="submit">
           Save
         </Button>
       </div>

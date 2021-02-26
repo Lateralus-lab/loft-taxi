@@ -1,18 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { AuthContext } from '../../AuthContext';
+import { Provider } from 'react-redux';
+import store from '../../store';
 import AuthPage from './AuthPage';
 
 describe('AuthPage', () => {
-  it('renders correctly', () => {
+  it('renders correctly with redux', () => {
     render(
-      <AuthContext.Provider
-        value={{
-          onLogin: jest.fn(),
-        }}
-      >
+      <Provider store={store}>
         <AuthPage />
-      </AuthContext.Provider>
+      </Provider>
     );
   });
 });

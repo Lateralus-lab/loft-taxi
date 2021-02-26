@@ -1,7 +1,9 @@
 import React from 'react';
-import App from './App';
 import { render } from '@testing-library/react';
-import { AuthContext } from './AuthContext';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+import App from './App';
 
 jest.mock('mapbox-gl', () => ({
   Map: jest.fn(() => ({ remove: () => {} })),
@@ -14,18 +16,20 @@ jest.mock('./components/AuthPage/AuthPage', () => ({
 
 describe('App', () => {
   it('renders correctly', () => {
-    const { container } = render(
-      <AuthContext.Provider
-        value={{
-          isLoggedI: jest.fn(),
-          setIsLoggedIn: jest.fn(),
-          onLogin: jest.fn(),
-          onLogout: jest.fn(),
-        }}
-      >
-        <App />
-      </AuthContext.Provider>
+    const mockStore = {
+      getState: () => ({ auth: { isLoggedIn: true } }),
+      subscribe: () => {},
+      dispatch: () => {},
+    };
+
+    const history = createMemoryHistory();
+
+    render(
+      <Router history={history}>
+        <Provider store={mockStore}>
+          <App />
+        </Provider>
+      </Router>
     );
-    expect(container.innerHTML).toMatch('Auth');
   });
 });

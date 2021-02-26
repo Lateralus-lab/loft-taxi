@@ -4,7 +4,7 @@ import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({ dispatch, isLoggedIn, setIsRegistered }) => {
+const LoginForm = ({ dispatch, setIsRegistered }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,11 +20,6 @@ const LoginForm = ({ dispatch, isLoggedIn, setIsRegistered }) => {
     setIsRegistered(false);
   };
 
-  const loading = isLoggedIn.isFetching ? <div>Loading...</div> : null;
-  const errorMsg = isLoggedIn.msgError ? (
-    <div>Wrong user or password</div>
-  ) : null;
-
   return (
     <DivCentered>
       <form onSubmit={handleSubmit}>
@@ -33,6 +28,7 @@ const LoginForm = ({ dispatch, isLoggedIn, setIsRegistered }) => {
         </div>
         <div>
           <Input
+            id="email"
             name="email"
             type="email"
             value={email}
@@ -42,6 +38,7 @@ const LoginForm = ({ dispatch, isLoggedIn, setIsRegistered }) => {
         </div>
         <div>
           <Input
+            id="password"
             name="password"
             type="password"
             value={password}
@@ -49,11 +46,14 @@ const LoginForm = ({ dispatch, isLoggedIn, setIsRegistered }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button variant="contained" color="primary" type="submit">
+        <Button
+          id="signup-button"
+          variant="contained"
+          color="primary"
+          type="submit"
+        >
           Sign in
         </Button>
-        {loading}
-        {errorMsg}
         <div>
           <p>Dont have an account?</p>
           <a href="/" onClick={handleUser}>

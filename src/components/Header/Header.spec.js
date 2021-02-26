@@ -1,21 +1,26 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import Header from './Header';
-import { AuthContext } from '../../AuthContext';
 
 describe('Header', () => {
   it('renders correctly', () => {
+    const mockStore = {
+      getState: () => {},
+      subscribe: () => {},
+      dispatch: () => {},
+    };
+
+    const history = createMemoryHistory();
+
     const { container } = render(
-      <AuthContext.Provider
-        value={{
-          isLoggedI: jest.fn(),
-          setIsLoggedIn: jest.fn(),
-          onLogin: jest.fn(),
-          onLogout: jest.fn(),
-        }}
-      >
-        <Header />
-      </AuthContext.Provider>
+      <Router history={history}>
+        <Provider store={mockStore}>
+          <Header />
+        </Provider>
+      </Router>
     );
     expect(container.innerHTML).toMatch('LoftTaxi');
   });
