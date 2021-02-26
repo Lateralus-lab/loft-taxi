@@ -12,6 +12,7 @@ describe('card details', () => {
         cvc: '',
       },
     };
+
     expect(profileReducer(initialState, action)).toEqual({
       cardHolder: action.payload.cardHolder,
       cardNumber: action.payload.cardNumber,
