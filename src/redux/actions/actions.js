@@ -7,12 +7,12 @@ import {
   PROFILE_DATA,
 } from './types';
 
-export const fetch_auth_request = (email, password) => ({
+export const fetchAuthRequest = (email, password) => ({
   type: FETCH_AUTH_REQUEST,
   payload: { email, password },
 });
-export const fetch_auth_success = () => ({ type: FETCH_AUTH_SUCCESS });
-export const fetch_auth_failure = () => ({ type: FETCH_AUTH_FAILURE });
+export const fetchAuthSuccess = () => ({ type: FETCH_AUTH_SUCCESS });
+export const fetchAuthFailure = () => ({ type: FETCH_AUTH_FAILURE });
 export const signOut = () => ({ type: SIGN_OUT });
 export const register = (email, name, surname, password) => ({
   type: REGISTER,

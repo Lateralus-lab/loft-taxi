@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetch_auth_request } from '../../../redux/actions/actions';
+import { fetchAuthRequest } from '../../../redux/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
@@ -15,7 +15,7 @@ const LoginForm = ({ setIsRegistered }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(fetch_auth_request(email, password));
+    dispatch(fetchAuthRequest(email, password));
   };
 
   const handleUser = (e) => {

@@ -1,5 +1,5 @@
 import { FETCH_AUTH_REQUEST, PROFILE_DATA, REGISTER } from '../actions/types';
-import { fetch_auth_success, fetch_auth_failure } from '../actions/actions';
+import { fetchAuthSuccess, fetchAuthFailure } from '../actions/actions';
 import { serverLogin, serverProfile, serverRegister } from '../api';
 
 const authMiddleware = (store) => (next) => async (action) => {
@@ -9,8 +9,8 @@ const authMiddleware = (store) => (next) => async (action) => {
       const data = await serverLogin(email, password);
 
       if (data.success) {
-        store.dispatch(fetch_auth_success(data.token));
-      } else if (data.error) store.dispatch(fetch_auth_failure());
+        store.dispatch(fetchAuthSuccess(data.token));
+      } else if (data.error) store.dispatch(fetchAuthFailure());
       break;
     }
     case REGISTER: {
@@ -18,7 +18,7 @@ const authMiddleware = (store) => (next) => async (action) => {
       const data = await serverRegister(email, name, surname, password);
 
       if (data.success) {
-        store.dispatch(fetch_auth_success(data.token));
+        store.dispatch(fetchAuthSuccess(data.token));
       }
       break;
     }
