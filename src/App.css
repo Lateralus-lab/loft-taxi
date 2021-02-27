@@ -2,44 +2,6 @@ ul {
   list-style: none;
 }
 
-.App {
-  text-align: center;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  max-width: 450px;
-  width: 100%;
-}
-
-.menu-link {
-  margin-left: 20px;
-
-  text-decoration: none;
-  color: #000000;
-}
-
-form {
-  margin: 0 auto;
-  width: 450px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .map-wrapper {
   position: relative;
   width: 100%;

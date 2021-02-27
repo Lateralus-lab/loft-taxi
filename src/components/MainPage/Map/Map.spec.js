@@ -13,8 +13,8 @@ describe('Map', () => {
     expect(mapboxgl.Map).toHaveBeenCalledWith({
       container: getByTestId('map'),
       style: 'mapbox://styles/mapbox/streets-v9',
-      center: [-0.118092, 51.509865],
-      zoom: 10,
+      center: [30.3056504, 59.9429126],
+      zoom: 12,
     });
   });
 });

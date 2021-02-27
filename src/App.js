@@ -1,54 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
-import { AuthContext } from './AuthContext';
-// Import pages
-import Auth from './pages/Auth';
-import Main from './pages/Main';
-import Profile from './pages/Profile';
 // Import components
-import Header from './components/Header';
+import Header from './components/Header/Header';
+import AuthPage from './components/AuthPage/AuthPage';
+import MainPage from './components/MainPage/MainPage';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 const App = () => {
-  // Default user
-  const guestUser = 'guest@email.com';
-  const guestPassword = '123';
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const history = useHistory();
+  const mounted = useRef();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [currentPage, setCurrentPage] = useState(isLoggedIn ? 'main' : 'auth');
-  const header = <Header setCurrentPage={setCurrentPage} />;
-  const pages = {
-    auth: <Auth />,
-    profile: <Profile />,
-    main: <Main />,
-  };
-
-  const userSignIn = (email, password, msgError) => {
-    if (email === guestUser && password === guestPassword) {
-      setIsLoggedIn(true);
-      setCurrentPage('main');
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
     } else {
-      msgError();
+      if (isLoggedIn) {
+        history.push('/main');
+      } else {
+        history.push('/');
+      }
     }
-  };
-
-  const userSignOut = () => {
-    setIsLoggedIn(false);
-    setCurrentPage('auth');
-  };
+  });
 
   return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn,
-        userSignIn,
-        userSignOut,
-      }}
-    >
-      <div className="App">
-        {currentPage !== 'auth' && <div>{header}</div>}
-        {!isLoggedIn ? pages.auth : pages[currentPage]}
-      </div>
-    </AuthContext.Provider>
+    <div>
+      {isLoggedIn ? <Header /> : null}
+      <Switch>
+        <Route exact path="/" component={AuthPage} />
+        <PrivateRoute path="/main" component={MainPage} />
+        <PrivateRoute path="/profile" component={ProfilePage} />
+      </Switch>
+    </div>
   );
 };
 
