@@ -1,4 +1,4 @@
-import { PROFILE_DATA } from '../actions/types';
+import { CARD_DATA } from '../actions/types';
 
 export const initialState = {
   cardHolder: '',
@@ -9,7 +9,7 @@ export const initialState = {
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case PROFILE_DATA:
+    case CARD_DATA:
       return {
         ...state,
         cardHolder: action.payload.cardHolder,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { TextField, Button } from '@material-ui/core';
-import { PROFILE_DATA } from '../../../redux/actions/types';
+import { CARD_DATA } from '../../../redux/actions/types';
 
 const ProfileForm = () => {
   const [cardHolder, setCardHolder] = useState('JOHN SMITH');
@@ -15,7 +15,7 @@ const ProfileForm = () => {
     e.preventDefault();
 
     dispatch({
-      type: PROFILE_DATA,
+      type: CARD_DATA,
       payload: { cardHolder, cardNumber, expiryDate, cvc },
     });
   };

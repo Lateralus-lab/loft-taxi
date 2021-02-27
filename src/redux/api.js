@@ -21,7 +21,7 @@ export const serverLogin = async (payload) => {
   return await fetchData(`${API_URL}/auth`, params);
 };
 
-export const serverRegister = async (email, name, surname, password) => {
+export const serverRegister = async ({ email, name, surname, password }) => {
   const regData = {
     email: email,
     name: name,

@@ -4,7 +4,7 @@ import {
   FETCH_AUTH_SUCCESS,
   SIGN_OUT,
   REGISTER,
-  PROFILE_DATA,
+  CARD_DATA,
 } from './types';
 
 export const fetchAuthRequest = (email, password) => ({
@@ -18,7 +18,7 @@ export const register = (email, name, surname, password) => ({
   type: REGISTER,
   payload: { email, name, surname, password },
 });
-export const profileData = (cardHolder, cardNumber, expiryDate, cvc) => ({
-  type: PROFILE_DATA,
+export const cardData = (cardHolder, cardNumber, expiryDate, cvc) => ({
+  type: CARD_DATA,
   payload: { cardHolder, cardNumber, expiryDate, cvc },
 });
