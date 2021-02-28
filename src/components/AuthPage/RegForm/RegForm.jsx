@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Input } from '@material-ui/core';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const RegForm = ({ setIsRegistered, register }) => {
@@ -22,7 +21,7 @@ const RegForm = ({ setIsRegistered, register }) => {
   };
 
   return (
-    <DivCentered>
+    <div>
       <form onSubmit={handleSubmit}>
         <div>
           <h3>Register</h3>
@@ -80,14 +79,9 @@ const RegForm = ({ setIsRegistered, register }) => {
           </a>
         </div>
       </form>
-    </DivCentered>
+    </div>
   );
 };
-
-const DivCentered = styled.div`
-  margin: 0 auto;
-  width: 450px;
-`;
 
 export default RegForm;
 

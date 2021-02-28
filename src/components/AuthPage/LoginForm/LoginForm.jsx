@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input } from '@material-ui/core';
-import styled from 'styled-components';
+import { Button, Grid, TextField, Paper, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
@@ -23,61 +22,55 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
   const loginError = msgError ? <div>Wrong email or password</div> : null;
 
   return (
-    <DivCentered>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h3>Login</h3>
-        </div>
-        <div>
-          <Input
-            data-testid="email"
-            name="email"
-            type="email"
-            value={email}
-            placeholder="Your Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <Input
-            data-testid="password"
-            name="password"
-            type="password"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <Button
-          id="signup-button"
-          variant="contained"
-          color="primary"
-          type="submit"
+    <Grid className="center_block">
+      <Paper className="form-block" elevation={3}>
+        <form
+          className="form w--350"
+          noValidate
+          autoComplete="off"
+          onSubmit={handleSubmit}
         >
-          Sign in
-        </Button>
-        {authStatus}
-        {loginError}
-        <div>
-          <p>Dont have an account?</p>
-          <a href="/" onClick={handleUser}>
-            Create account
-          </a>
-        </div>
-      </form>
-    </DivCentered>
+          <div>
+            <Typography className="form-title" variant="h4">
+              Login
+            </Typography>
+          </div>
+          <div>
+            <TextField
+              data-testid="email"
+              name="email"
+              type="email"
+              value={email}
+              placeholder="Your Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <TextField
+              data-testid="password"
+              name="password"
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <Button className="mb--30" id="signup-button" type="submit">
+            Sign in
+          </Button>
+          {authStatus}
+          {loginError}
+          <div>
+            <p>Dont have an account?</p>
+            <a href="/" onClick={handleUser}>
+              Create account
+            </a>
+          </div>
+        </form>
+      </Paper>
+    </Grid>
   );
 };
-
-const DivCentered = styled.div`
-  margin: 0 auto;
-  width: 450px;
-
-  Input {
-    min-width: 450px;
-    width: 100%;
-  }
-`;
 
 export default LoginForm;
 
