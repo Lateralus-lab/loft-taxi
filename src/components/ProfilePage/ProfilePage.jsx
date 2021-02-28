@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import ProfileForm from './ProfileForm/ProfileForm';
+import ProfileFormContainer from './ProfileForm/ProfileFormContainer';
 
 const ProfilePage = () => {
   return (
@@ -11,7 +11,7 @@ const ProfilePage = () => {
         </Typography>
         <div>Please fill out the form</div>
       </div>
-      <ProfileForm />
+      <ProfileFormContainer />
     </div>
   );
 };

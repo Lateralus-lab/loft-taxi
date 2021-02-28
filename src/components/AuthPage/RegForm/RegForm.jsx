@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { register } from '../../../redux/actions/actions';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const RegForm = ({ dispatch, setIsRegistered }) => {
+const RegForm = ({ setIsRegistered, register }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -13,7 +12,7 @@ const RegForm = ({ dispatch, setIsRegistered }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(register(email, name, surname, password));
+    register(email, name, surname, password);
   };
 
   const handleUser = (e) => {

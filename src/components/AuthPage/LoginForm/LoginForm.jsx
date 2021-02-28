@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
-import { fetchAuthRequest } from '../../../redux/actions/actions';
-import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input } from '@material-ui/core';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const LoginForm = ({ setIsRegistered }) => {
+const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const auth = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(fetchAuthRequest(email, password));
+    props.fetchAuthRequest(email, password);
   };
 
   const handleUser = (e) => {
@@ -24,8 +19,8 @@ const LoginForm = ({ setIsRegistered }) => {
     setIsRegistered(false);
   };
 
-  const authStatus = auth.isFetching ? <div>Loading</div> : null;
-  const loginError = auth.msgError ? <div>Wrong email or password</div> : null;
+  const authStatus = isFetching ? <div>Loading</div> : null;
+  const loginError = msgError ? <div>Wrong email or password</div> : null;
 
   return (
     <DivCentered>
