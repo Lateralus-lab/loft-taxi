@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Grid, TextField, Paper, Typography } from '@material-ui/core';
+import styles from './LoginForm.module.scss';
 import PropTypes from 'prop-types';
 
 const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
@@ -25,7 +26,7 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
     <Grid className="center_block">
       <Paper className="form-block" elevation={3}>
         <form
-          className="form w--350"
+          className={styles.form}
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}

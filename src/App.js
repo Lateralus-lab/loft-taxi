@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
-import './App.css';
+import './assets/styles/style.scss';
 // Import components
 import Header from './components/Header/Header';
 import AuthPage from './components/AuthPage/AuthPage';

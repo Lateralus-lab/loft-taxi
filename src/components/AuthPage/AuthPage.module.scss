@@ -1,0 +1,19 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'logo auth auth';
+}
+
+.left {
+  grid-area: logo; 
+  height: 100%;
+
+  background-color: #4D4D4D;
+
+  // color: $color_white;
+}
+
+.right {
+  grid-area: auth;
+}

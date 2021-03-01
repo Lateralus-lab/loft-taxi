@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signOut } from '../../../redux/actions/actions';
@@ -9,7 +8,7 @@ const Nav = () => {
   const dispatch = useDispatch();
 
   return (
-    <NavStyled>
+    <div>
       <nav>
         <ul>
           <li>
@@ -25,24 +24,9 @@ const Nav = () => {
           </li>
         </ul>
       </nav>
-    </NavStyled>
+    </div>
   );
 };
-
-const NavStyled = styled.div`
-  ul {
-    display: flex;
-    align-items: center;
-    max-width: 450px;
-    width: 100%;
-  }
-
-  li {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #000000;
-  }
-`;
 
 export default Nav;
 
