@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, TextField, Paper, Typography } from '@material-ui/core';
+import { Button, TextField, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
@@ -22,7 +22,7 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
   const loginError = msgError ? <div>Wrong email or password</div> : null;
 
   return (
-    <div className="login">
+    <div className="loginform">
       <form
         className="form"
         noValidate

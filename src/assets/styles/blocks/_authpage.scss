@@ -10,11 +10,13 @@
   grid-area: logo; 
   height: 100%;
 
-  background-color: #4D4D4D;
-
+  background-color: #1C1A19;
   color: $color_white;
 }
 
 .authpage__right {
   grid-area: auth;
+
+  background-image: url('../../img/map-baackground.jpg');
 }
+

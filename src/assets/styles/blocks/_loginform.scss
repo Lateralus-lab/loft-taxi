@@ -1,14 +1,8 @@
-.login {
+.loginform {
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100%;
   position: relative;
 }
 
-form {
-  width: 350px;
-
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
