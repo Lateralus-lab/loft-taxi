@@ -27,7 +27,7 @@ const App = () => {
   });
 
   return (
-    <div>
+    <div className="app">
       {isLoggedIn ? <Header /> : null}
       <Switch>
         <Route exact path="/" component={AuthPage} />

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './AuthPage.module.scss';
 // Import components
 import LoginFormContainer from './LoginForm/LoginFormContainer';
 import RegFormContainer from './RegForm/RegFormContainer';
@@ -8,11 +7,11 @@ const AuthPage = () => {
   const [isRegistered, setIsRegistered] = useState(true);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.left}>
+    <div className="authpage">
+      <div className="authpage__left">
         <h3>Logo</h3>
       </div>
-      <div className={styles.right}>
+      <div className="authpage__right">
         {isRegistered ? (
           <LoginFormContainer setIsRegistered={setIsRegistered} />
         ) : (
