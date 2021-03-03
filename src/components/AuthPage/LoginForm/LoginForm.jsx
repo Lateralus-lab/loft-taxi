@@ -29,13 +29,12 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
         autoComplete="off"
         onSubmit={handleSubmit}
       >
-        <div>
-          <Typography className="form-title" variant="h4">
-            Login
-          </Typography>
-        </div>
-        <div>
+        <Typography className="form__title" variant="h4">
+          Login
+        </Typography>
+        <div className="input__group">
           <TextField
+            className="input"
             data-testid="email"
             name="email"
             type="email"
@@ -44,8 +43,9 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="input__group">
           <TextField
+            className="input"
             data-testid="password"
             name="password"
             type="password"
@@ -54,7 +54,11 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <Button className="mb--30" id="signup-button" type="submit">
+        <Button
+          className="button button--form"
+          id="signup-button"
+          type="submit"
+        >
           Sign in
         </Button>
         {authStatus}

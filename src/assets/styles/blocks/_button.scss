@@ -1,0 +1,19 @@
+.button {
+  width: 100%;
+
+  background-color: $color_orange;
+  border-radius: 70px;
+
+  font-size: 18px;
+  font-weight: 400;
+  color: $color_black; 
+  text-align: center;
+
+  &--form {
+    margin: 72px 0 24px;
+  }
+
+  &:hover {
+    background-color: #FFA84F;
+  }
+}
