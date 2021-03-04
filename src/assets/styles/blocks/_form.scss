@@ -4,7 +4,7 @@
 
   background-color: $color_white;
   border-radius: 20px;
-  box-shadow: 0px 3px 5px -1px, 0px 5px 8px 0px, 0px 1px 14px 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
   position: absolute;
   top: 50%;
@@ -17,4 +17,14 @@
   font-size: 36px;
   font-weight: 700;
   text-align: center;
+}
+
+.form__link {
+  color: $color_orange;
+  font-weight: 400;
+  text-decoration: none;
+
+  &:hover {
+    color: #FFA84F;
+  }
 }

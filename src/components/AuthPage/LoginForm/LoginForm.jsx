@@ -18,7 +18,7 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
     setIsRegistered(false);
   };
 
-  const authStatus = isFetching ? <div>Loading</div> : null;
+  const authStatus = isFetching ? <div>Loading...</div> : null;
   const loginError = msgError ? <div>Wrong email or password</div> : null;
 
   return (
@@ -36,10 +36,12 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
           <TextField
             className="input"
             data-testid="email"
+            id="standard-basic"
             name="email"
             type="email"
+            required
+            label="Email"
             value={email}
-            placeholder="Your Email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
@@ -47,13 +49,17 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
           <TextField
             className="input"
             data-testid="password"
+            id="standard-basic"
             name="password"
             type="password"
+            required
+            label="Password"
             value={password}
-            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        {authStatus}
+        {loginError}
         <Button
           className="button button--form"
           id="signup-button"
@@ -61,11 +67,9 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
         >
           Sign in
         </Button>
-        {authStatus}
-        {loginError}
         <div>
           <p>Dont have an account?</p>
-          <a href="/" onClick={handleUser}>
+          <a className="form__link" href="/" onClick={handleUser}>
             Create account
           </a>
         </div>

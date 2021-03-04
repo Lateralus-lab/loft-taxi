@@ -1,4 +1,8 @@
 .input {
   margin: 16px 0 8px;
   width: 100%;
+
+  &:hover {
+    border-color: blue;
+  }
 }
