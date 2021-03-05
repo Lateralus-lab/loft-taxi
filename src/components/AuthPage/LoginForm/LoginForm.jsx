@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, TextField, Typography } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import PropTypes from 'prop-types';
 
 const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
@@ -18,8 +19,16 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
     setIsRegistered(false);
   };
 
-  const authStatus = isFetching ? <div>Loading...</div> : null;
-  const loginError = msgError ? <div>Wrong email or password</div> : null;
+  const authStatus = isFetching ? (
+    <Alert variant="outlined" severity="warning">
+      Loading...
+    </Alert>
+  ) : null;
+  const loginError = msgError ? (
+    <Alert variant="outlined" severity="error">
+      Wrong email or password
+    </Alert>
+  ) : null;
 
   return (
     <div className="loginform">
