@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input } from '@material-ui/core';
+import { Button, TextField, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const RegForm = ({ setIsRegistered, register }) => {
@@ -21,60 +21,74 @@ const RegForm = ({ setIsRegistered, register }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="form__wrapper">
+      <form
+        className="form"
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <div>
-          <h3>Register</h3>
+          <Typography className="form__title" variant="h4">
+            Register
+          </Typography>
         </div>
-        <div>
-          <Input
+        <div className="input__group">
+          <TextField
+            className="input"
             id="email"
             name="email"
             type="email"
-            placeholder="Your Email"
+            label="Email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <Input
+        <div className="input__group input__group--double">
+          <TextField
+            className="input input--small"
             id="name"
             name="name"
             type="text"
-            placeholder="Name"
+            label="Name"
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <Input
+          <TextField
+            className="input input--small"
             id="surname"
             name="name"
             type="text"
-            placeholder="Surname"
+            label="Surname"
+            required
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
           />
         </div>
         <div>
-          <Input
+          <TextField
+            className="input"
             id="password"
             name="password"
             type="password"
-            placeholder="Password"
+            label="Password"
+            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <Button
+          className="button button--form"
           id="signup-button"
-          variant="contained"
-          color="primary"
           type="submit"
         >
           Sign up
         </Button>
         <div>
           <p>Already have an account?</p>
-          <a href="/" onClick={handleUser}>
+          <a className="form__link" href="/" onClick={handleUser}>
             Sign in
           </a>
         </div>

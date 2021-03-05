@@ -2,7 +2,19 @@
   margin: 16px 0 8px;
   width: 100%;
 
+  &--small {
+    display: inline-block;
+    width: 180px;
+  }
+
   &:hover {
     border-color: blue;
+  }
+}
+
+.input__group {
+  &--double {
+    display: flex;
+    justify-content: space-between;
   }
 }

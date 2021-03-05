@@ -9,6 +9,7 @@
 .authpage__left {
   grid-area: logo; 
   height: 100%;
+  position: relative;
 
   background-color: #1C1A19;
   color: $color_white;

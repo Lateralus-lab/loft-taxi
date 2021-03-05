@@ -31,7 +31,7 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
   ) : null;
 
   return (
-    <div className="loginform">
+    <div className="form__wrapper">
       <form
         className="form"
         noValidate

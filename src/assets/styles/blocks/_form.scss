@@ -11,6 +11,14 @@
   transform: translateY(-50%);
 }
 
+.form__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
 .form__title {
   margin-bottom: 2.65rem;
 
