@@ -23,7 +23,16 @@ const Map = () => {
     if (!map) initializeMap({ mapContainer });
   }, [map]);
 
-  return <div data-testid="map" ref={(el) => (mapContainer.current = el)} />;
+  return (
+    <div className="map">
+      <div
+        className="map__item"
+        data-testid="map"
+        ref={(el) => (mapContainer.current = el)}
+      />
+      ;
+    </div>
+  );
 };
 
 export default Map;
