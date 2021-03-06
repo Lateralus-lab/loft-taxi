@@ -8,23 +8,29 @@ const Nav = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/main">Map</Link>
-          </li>
-          <li>
-            <Link to="/profile">Profile</Link>
-          </li>
-          <li>
-            <Link to="/" onClick={() => dispatch(signOut())}>
-              Sign out
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav className="nav">
+      <ul className="nav__list">
+        <li className="nav__item">
+          <Link className="nav__link" to="/main">
+            Map
+          </Link>
+        </li>
+        <li className="nav__item">
+          <Link className="nav__link" to="/profile">
+            Profile
+          </Link>
+        </li>
+        <li className="nav__item">
+          <Link
+            className="nav__link"
+            to="/"
+            onClick={() => dispatch(signOut())}
+          >
+            Sign out
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

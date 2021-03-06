@@ -1,0 +1,24 @@
+.nav {
+  margin-top: 18px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav__item {
+  margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.nav__link {
+  color: $color_white;
+  font-weight: 600;
+  text-decoration: none;
+}
