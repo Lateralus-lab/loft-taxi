@@ -1,6 +1,7 @@
 .form {
   padding: 48px 102px;
-  width: 580px;
+  max-width: 580px;
+  width: 100%;
 
   background-color: $color_white;
   border-radius: 20px;
@@ -11,6 +12,12 @@
   position: absolute;
   top: 50%;
   z-index: 2;
+
+  &--profile {
+  max-width: 840px;
+  width: 100%;
+
+  }
 }
 
 .form__wrapper {
