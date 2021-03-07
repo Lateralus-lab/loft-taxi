@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Typography } from '@material-ui/core';
 
 const ProfileForm = ({ cardData }) => {
   const [cardHolder, setCardHolder] = useState('JOHN SMITH');
@@ -14,9 +14,21 @@ const ProfileForm = ({ cardData }) => {
   };
 
   return (
-    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+    <form
+      className="form"
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
       <div>
+        <Typography className="form__title form__title--profile" variant="h4">
+          Profile
+        </Typography>
+      </div>
+      <div className="form__desc">Please fill out the form</div>
+      <div className="input__group">
         <TextField
+          className="input"
           data-testid="name"
           label="Name on card"
           required
@@ -24,8 +36,9 @@ const ProfileForm = ({ cardData }) => {
           onChange={(e) => setCardHolder(e.target.value)}
         />
       </div>
-      <div>
+      <div className="input__group">
         <TextField
+          className="input"
           data-testid="card-number"
           label="Card number"
           required
@@ -33,8 +46,9 @@ const ProfileForm = ({ cardData }) => {
           onChange={(e) => setCardNumber(e.target.value)}
         />
       </div>
-      <div>
+      <div className="input__group input__group--double">
         <TextField
+          className="input input--small"
           data-testid="expiry"
           name="expiritation"
           variant="standard"
@@ -45,6 +59,7 @@ const ProfileForm = ({ cardData }) => {
           onChange={(e) => setExpiryDate(e.target.value)}
         />
         <TextField
+          className="input input--small"
           data-testid="cvc"
           variant="standard"
           label="CVC"
@@ -55,7 +70,7 @@ const ProfileForm = ({ cardData }) => {
         />
       </div>
       <div>
-        <Button data-testid="save-button" variant="contained" type="submit">
+        <Button className="button" data-testid="save-button" type="submit">
           Save
         </Button>
       </div>

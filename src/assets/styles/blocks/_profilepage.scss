@@ -1,0 +1,26 @@
+.profilepage {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+
+ background-image: url('../../img/map-baackground.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(28, 26, 25);
+    opacity: .5;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
+
