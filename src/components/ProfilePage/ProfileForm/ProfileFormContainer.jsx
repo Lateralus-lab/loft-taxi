@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { cardData } from '../../../redux/actions/actions';
 import ProfileForm from './ProfileForm';
+// import { getProfile } from '../../../modules/auth';
 
 const ProfileFormContainer = () => {
   return (
     <>
-      <ProfileForm cardData={cardData} />
+      <ProfileForm />
     </>
   );
 };
 
-export default connect(null, { cardData })(ProfileFormContainer);
+export default connect(null, null)(ProfileFormContainer);

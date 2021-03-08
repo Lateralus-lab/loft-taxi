@@ -36,12 +36,12 @@ export const serverRegister = async ({ email, name, surname, password }) => {
   return fetchData(`${API_URL}/register`, params);
 };
 
-export const serverProfile = async (
+export const serverProfile = async ({
   cardHolder,
   cardNumber,
   expiryDate,
-  cvc
-) => {
+  cvc,
+}) => {
   const profileData = {
     cardHolder: cardHolder,
     cardNumber: cardNumber,
@@ -53,5 +53,5 @@ export const serverProfile = async (
     body: JSON.stringify(profileData),
   };
 
-  return await fetchData(`${API_URL}/card`, params);
+  return fetchData(`${API_URL}/card`, params);
 };

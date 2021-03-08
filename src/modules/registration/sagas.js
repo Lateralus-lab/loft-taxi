@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchAuthFailure, fetchAuthSuccess } from '../actions/actions';
-import { REGISTER } from '../actions/types';
-import { serverRegister } from '../api';
+import { fetchAuthFailure, fetchAuthSuccess } from './../auth/actions';
+import { REGISTER } from './actions';
+import { serverRegister } from '../../redux/api';
 
 function* handleRegSaga(action) {
   try {

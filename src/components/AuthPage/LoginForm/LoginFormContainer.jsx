@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAuthRequest } from '../../../redux/actions/actions';
+import { fetchAuthRequest } from '../../../modules/auth';
 import LoginForm from './LoginForm';
 
 const LoginFormContainer = ({

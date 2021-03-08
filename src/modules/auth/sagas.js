@@ -1,7 +1,10 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { FETCH_AUTH_REQUEST } from '../actions/types';
-import { fetchAuthSuccess, fetchAuthFailure } from '../actions/actions';
-import { serverLogin } from '../api';
+import {
+  FETCH_AUTH_REQUEST,
+  fetchAuthSuccess,
+  fetchAuthFailure,
+} from './actions';
+import { serverLogin } from '../../redux/api';
 
 function* handleAuthSaga(action) {
   try {

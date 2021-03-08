@@ -1,8 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import authReducer from './redux/reducers/authReducer';
-import profileReducer from './redux/reducers/profileReducer';
+import authReducer from '../modules/auth';
 import createSagaMiddleware from 'redux-saga';
-import rootSaga from './redux/sagas/rootSaga';
+import rootSaga from '../modules/rootSaga';
 
 const saveToLocalStarage = (state) => {
   try {
@@ -35,7 +34,6 @@ const composeEnhancers =
 
 const allReducers = combineReducers({
   auth: authReducer,
-  profile: profileReducer,
 });
 
 const store = createStore(

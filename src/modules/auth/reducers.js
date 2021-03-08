@@ -3,15 +3,16 @@ import {
   FETCH_AUTH_FAILURE,
   FETCH_AUTH_SUCCESS,
   SIGN_OUT,
-} from '../actions/types';
+} from './actions';
 
-export const initialState = {
+const initialState = {
   isLoggedIn: false,
   isFetching: false,
   msgError: false,
 };
 
-const authReducer = (state = initialState, action) => {
+// eslint-disable-next-line
+export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_AUTH_REQUEST:
       return { ...state, isLoggedIn: false, isFetching: true, msgError: false };
@@ -29,6 +30,4 @@ const authReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-export default authReducer;
+}

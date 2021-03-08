@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { signOut } from '../../../redux/actions/actions';
+import { signOut } from '../../../modules/auth';
 import PropTypes from 'prop-types';
 
 const Nav = () => {
