@@ -1,9 +1,30 @@
 .card {
-  max-width: 390px;
+  margin-top: 16px;
+  max-width: 377px;
   width: 100%;
+
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .card__header {
   display: flex;
   justify-content: space-between;
+  padding: 18px 28px;
+
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.card__content {
+  padding: 18px 28px;
+
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 28px;
 }

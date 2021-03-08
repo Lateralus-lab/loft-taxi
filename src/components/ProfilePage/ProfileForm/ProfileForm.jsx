@@ -81,13 +81,15 @@ const ProfileForm = ({ cardData }) => {
               <LogoCard />
               <div className="card__expiry">05/24</div>
             </div>
-            Card
-            <IdCard />
-            <LabelCard />
+            <div className="card__content">4234 2342 3423 4234</div>
+            <div className="card__footer">
+              <IdCard />
+              <LabelCard />
+            </div>
           </div>
         </div>
       </div>
-      <div>
+      <div className="profile__item">
         <Button
           className="button button--profile"
           data-testid="save-button"

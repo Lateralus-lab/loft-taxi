@@ -21,4 +21,8 @@
   color: $color_white;
   font-weight: 600;
   text-decoration: none;
+
+  &:hover {
+    color: $color_orange;
+  }
 }
