@@ -6,13 +6,14 @@ import LabelCard from '../../svg/LabelCard';
 
 const ProfileForm = ({ cardData }) => {
   const [cardHolder, setCardHolder] = useState('JOHN SMITH');
-  const [cardNumber, setCardNumber] = useState('0000 0000 0000 0000');
-  const [expiryDate, setExpiryDate] = useState('05/25');
-  const [cvc, setCvc] = useState('123');
+  const [cardNumber, setCardNumber] = useState('4234 2342 3423 4234');
+  const [expiryDate, setExpiryDate] = useState('05/24');
+  const [cvc, setCvc] = useState('345');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(cardData(cardHolder, cardNumber, expiryDate, cvc));
     cardData(cardHolder, cardNumber, expiryDate, cvc);
   };
 
@@ -28,9 +29,9 @@ const ProfileForm = ({ cardData }) => {
           Profile
         </Typography>
       </div>
-      <div className="form__desc">Please fill out the form</div>
+      <div className="form__desc">Enter your payment details</div>
       <div className="profile">
-        <div profile__left>
+        <div className="profile__left">
           <div className="input__group">
             <TextField
               className="input"

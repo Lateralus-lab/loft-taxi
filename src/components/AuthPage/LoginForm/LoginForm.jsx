@@ -21,7 +21,7 @@ const LoginForm = ({ isFetching, setIsRegistered, msgError, ...props }) => {
 
   const authStatus = isFetching ? (
     <Alert variant="outlined" severity="warning">
-      Loading...
+      Pending request...
     </Alert>
   ) : null;
   const loginError = msgError ? (

@@ -6,6 +6,9 @@ function* handleSaveCardData(action) {
   try {
     const response = yield call(serverProfile, action.payload);
 
+    if (response.success) {
+      console.log('Card saved');
+    }
     console.log(response);
   } catch (e) {
     console.log(e);

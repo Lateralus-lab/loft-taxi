@@ -17,7 +17,10 @@
   padding: 60px 44px;
   max-width: 850px;
   width: 100%;
+  }
 
+  &--save {
+    max-width: 580px;
   }
 }
 
@@ -42,7 +45,11 @@
 }
 
 .form__desc {
+  margin-top: 16px;
+
   text-align: center;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .form__link {
