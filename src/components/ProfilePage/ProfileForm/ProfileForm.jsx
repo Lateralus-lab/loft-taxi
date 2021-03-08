@@ -4,7 +4,7 @@ import LogoCard from '../../svg/LogoCard';
 import IdCard from '../../svg/IdCard';
 import LabelCard from '../../svg/LabelCard';
 
-const ProfileForm = ({ setProfile }) => {
+const ProfileForm = ({ editProfile }) => {
   const [cardHolder, setCardHolder] = useState('JOHN SMITH');
   const [cardNumber, setCardNumber] = useState('4234 2342 3423 4234');
   const [expiryDate, setExpiryDate] = useState('05/24');
@@ -13,7 +13,8 @@ const ProfileForm = ({ setProfile }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setProfile(cardHolder, cardNumber, expiryDate, cvc);
+    console.log(editProfile(cardHolder, cardNumber, expiryDate, cvc));
+    editProfile(cardHolder, cardNumber, expiryDate, cvc);
   };
 
   return (

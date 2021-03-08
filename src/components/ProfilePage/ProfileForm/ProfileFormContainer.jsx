@@ -1,14 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProfileForm from './ProfileForm';
-// import { getProfile } from '../../../modules/auth';
+import { editProfile } from '../../../modules/profile/actions';
 
 const ProfileFormContainer = () => {
   return (
     <>
-      <ProfileForm />
+      <ProfileForm editProfile={editProfile} />
     </>
   );
 };
 
-export default connect(null, null)(ProfileFormContainer);
+const mapStateToProps = (state) => ({ profile: state.profile });
+
+export default connect(mapStateToProps, { editProfile })(ProfileFormContainer);

@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import authReducer from '../modules/auth';
+import profileReducer from '../modules/profile';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../modules/rootSaga';
 
@@ -34,6 +35,7 @@ const composeEnhancers =
 
 const allReducers = combineReducers({
   auth: authReducer,
+  profile: profileReducer,
 });
 
 const store = createStore(
