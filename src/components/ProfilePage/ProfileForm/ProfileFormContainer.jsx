@@ -1,19 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { setProfile } from '../../../modules/profile/actions';
 import ProfileForm from './ProfileForm';
-import { editProfile } from '../../../modules/profile/actions';
 
-const ProfileFormContainer = ({ token }) => {
+const ProfileFormContainer = ({ token, setProfile }) => {
   return (
     <>
-      <ProfileForm token={token} editProfile={editProfile} />
+      <ProfileForm token={token} setProfile={setProfile} />
     </>
   );
 };
 
-const mapStateToProps = (state) => ({
-  token: state.auth.token,
-  profile: state.auth.profile,
-});
+const mapStateToProps = (state) => ({ token: state.auth.token });
 
-export default connect(mapStateToProps, { editProfile })(ProfileFormContainer);
+export default connect(mapStateToProps, { setProfile })(ProfileFormContainer);

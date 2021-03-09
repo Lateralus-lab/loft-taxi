@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setProfile } from '../../../modules/profile/actions';
 import { TextField, Button, Typography } from '@material-ui/core';
 import LogoCard from '../../svg/LogoCard';
 import IdCard from '../../svg/IdCard';
 import LabelCard from '../../svg/LabelCard';
 
-const ProfileForm = () => {
-  const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile);
-  const token = useSelector((state) => state.auth.token);
-
+const ProfileForm = ({ token, setProfile }) => {
   const [cardHolder, setCardHolder] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvc, setCvc] = useState('');
 
-  console.log(token);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // console.log(editProfile(token, cardHolder, cardNumber, expiryDate, cvc));
-    dispatch(setProfile(token, cardHolder, cardNumber, expiryDate, cvc));
+    setProfile(cardHolder, cardNumber, expiryDate, cvc, token);
   };
 
   return (
@@ -88,9 +79,9 @@ const ProfileForm = () => {
           <div className="card">
             <div className="card__header">
               <LogoCard />
-              <div className="card__expiry">05/24</div>
+              <div className="card__expiry">{expiryDate}</div>
             </div>
-            <div className="card__content">4234 2342 3423 4234</div>
+            <div className="card__content">{cardNumber}</div>
             <div className="card__footer">
               <IdCard />
               <LabelCard />

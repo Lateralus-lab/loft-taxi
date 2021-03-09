@@ -1,11 +1,11 @@
 import React from 'react';
-import ProfileForm from './ProfileForm/ProfileForm';
+import ProfileFormContainer from './ProfileForm/ProfileFormContainer';
 // import CardSaved from './CardSaved/CardSaved';
 
 const ProfilePage = () => {
   return (
     <div className="profilepage">
-      <ProfileForm />
+      <ProfileFormContainer />
       {/* <CardSaved /> */}
     </div>
   );
