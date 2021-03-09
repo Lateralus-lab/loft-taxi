@@ -10,13 +10,11 @@ const ProfileForm = ({ token, editProfile }) => {
   const [expiryDate, setExpiryDate] = useState('05/24');
   const [cvc, setCvc] = useState('345');
 
-  console.log(token);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(editProfile(cardHolder, cardNumber, expiryDate, cvc));
-    editProfile(cardHolder, cardNumber, expiryDate, cvc);
+    // console.log(editProfile(token, cardHolder, cardNumber, expiryDate, cvc));
+    editProfile(token, cardHolder, cardNumber, expiryDate, cvc);
   };
 
   return (

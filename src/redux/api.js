@@ -36,24 +36,27 @@ export const serverRegister = async ({ email, name, surname, password }) => {
   return await fetchData(`${API_URL}/register`, params);
 };
 
-// export const serverCard = async ({
-//   cardHolder,
-//   cardNumber,
-//   expiryDate,
-//   cvc,
-// }) => {
-//   const cardData = {
-//     cardHolder: cardHolder,
-//     cardNumber: cardNumber,
-//     expiryDate: expiryDate,
-//     cvc: cvc,
-//   };
-//   const params = {
-//     ...fetchConfig,
-//     body: JSON.stringify(cardData),
-//   };
+export const serverCard = async ({
+  token,
+  cardHolder,
+  cardNumber,
+  expiryDate,
+  cvc,
+}) => {
+  const params = {
+    ...fetchConfig,
+    body: JSON.stringify({
+      token: token,
+      cardHolder: cardHolder,
+      cardNumber: cardNumber,
+      expiryDate: expiryDate,
+      cvc: cvc,
+    }),
+  };
 
-//   console.log(cardData);
+  return await fetchData(`${API_URL}/card`, params);
+};
 
-//   return await fetchData(`${API_URL}/card`, params);
-// };
+export const getServerCard = async (token) => {
+  return await fetchData(`${API_URL}/card?token=${token}`, {});
+};

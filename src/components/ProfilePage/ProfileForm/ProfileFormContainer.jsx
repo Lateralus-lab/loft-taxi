@@ -11,6 +11,9 @@ const ProfileFormContainer = ({ token }) => {
   );
 };
 
-const mapStateToProps = (state) => ({ token: state.auth.token });
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+  profile: state.auth.profile,
+});
 
 export default connect(mapStateToProps, { editProfile })(ProfileFormContainer);
