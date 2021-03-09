@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import ProfileForm from './ProfileForm';
 import { editProfile } from '../../../modules/profile/actions';
 
-const ProfileFormContainer = () => {
+const ProfileFormContainer = (props) => {
+  console.log(props);
+
   return (
     <>
       <ProfileForm editProfile={editProfile} />
@@ -11,6 +13,6 @@ const ProfileFormContainer = () => {
   );
 };
 
-const mapStateToProps = (state) => ({ profile: state.profile });
+const mapStateToProps = (state) => ({ token: state.auth.token });
 
 export default connect(mapStateToProps, { editProfile })(ProfileFormContainer);

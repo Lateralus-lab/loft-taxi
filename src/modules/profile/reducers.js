@@ -1,13 +1,17 @@
-import { SET_PROFILE, REMOVE_PROFILE } from './actions';
+import { EDIT_PROFILE } from './actions';
+
+const initialState = {
+  cardHolder: '',
+  cardNumber: '',
+  expiryDate: '',
+  cvc: '',
+};
 
 // eslint-disable-next-line
-export default function (state = {}, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
-    case SET_PROFILE: {
-      return action.payload.profileData;
-    }
-    case REMOVE_PROFILE: {
-      return {};
+    case EDIT_PROFILE: {
+      return { ...action.payload };
     }
     default:
       return state;

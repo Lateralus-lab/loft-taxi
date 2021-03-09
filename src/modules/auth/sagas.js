@@ -10,6 +10,8 @@ function* handleAuthSaga(action) {
   try {
     const response = yield call(serverLogin, action.payload);
 
+    console.log(response.token);
+
     if (response.success) {
       yield put(fetchAuthSuccess(response.token));
     } else if (response.error) {

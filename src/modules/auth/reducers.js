@@ -9,6 +9,7 @@ const initialState = {
   isLoggedIn: false,
   isFetching: false,
   msgError: false,
+  token: null,
 };
 
 // eslint-disable-next-line
@@ -19,13 +20,20 @@ export default function (state = initialState, action) {
     case FETCH_AUTH_FAILURE:
       return { ...state, isLoggedIn: false, isFetching: false, msgError: true };
     case FETCH_AUTH_SUCCESS:
-      return { ...state, isLoggedIn: true, isFetching: false, msgError: false };
+      return {
+        ...state,
+        isLoggedIn: true,
+        isFetching: false,
+        msgError: false,
+        token: action.payload.token,
+      };
     case SIGN_OUT:
       return {
         ...state,
         isLoggedIn: false,
         isFetching: false,
         msgError: false,
+        token: null,
       };
     default:
       return state;
