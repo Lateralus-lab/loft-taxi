@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 import ProfileForm from './ProfileForm';
 import { editProfile } from '../../../modules/profile/actions';
 
-const ProfileFormContainer = (props) => {
-  console.log(props);
-
+const ProfileFormContainer = ({ token }) => {
   return (
     <>
-      <ProfileForm editProfile={editProfile} />
+      <ProfileForm token={token} editProfile={editProfile} />
     </>
   );
 };
