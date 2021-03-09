@@ -1,25 +1,6 @@
-export const GET_PROFILE = 'GET_PROFILE';
 export const SET_PROFILE = 'SET_PROFILE';
-export const EDIT_PROFILE = 'EDIT_PROFILE';
-export const REMOVE_PROFILE = 'EDIT_PROFILE';
 
-export const getProfile = (token) => ({
-  type: GET_PROFILE,
-  payload: { token },
-});
-export const removeProfile = () => ({ type: REMOVE_PROFILE });
-
-export const setProfile = (profileData) => ({
+export const setProfile = (cardHolder, cardNumber, expiryDate, cvc, token) => ({
   type: SET_PROFILE,
-  payload: { profileData },
-});
-export const editProfile = (
-  token,
-  cardHolder,
-  cardNumber,
-  expiryDate,
-  cvc
-) => ({
-  type: EDIT_PROFILE,
-  payload: { token, cardHolder, cardNumber, expiryDate, cvc },
+  payload: { cardHolder, cardNumber, expiryDate, cvc, token },
 });

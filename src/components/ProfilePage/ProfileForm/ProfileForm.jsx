@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProfile } from '../../../modules/profile/actions';
 import { TextField, Button, Typography } from '@material-ui/core';
 import LogoCard from '../../svg/LogoCard';
 import IdCard from '../../svg/IdCard';
 import LabelCard from '../../svg/LabelCard';
 
-const ProfileForm = ({ token, editProfile }) => {
-  const [cardHolder, setCardHolder] = useState('JOHN SMITH');
-  const [cardNumber, setCardNumber] = useState('4234 2342 3423 4234');
-  const [expiryDate, setExpiryDate] = useState('05/24');
-  const [cvc, setCvc] = useState('345');
+const ProfileForm = () => {
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.profile);
+  const token = useSelector((state) => state.auth.token);
+
+  const [cardHolder, setCardHolder] = useState('');
+  const [cardNumber, setCardNumber] = useState('');
+  const [expiryDate, setExpiryDate] = useState('');
+  const [cvc, setCvc] = useState('');
+
+  console.log(token);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // console.log(editProfile(token, cardHolder, cardNumber, expiryDate, cvc));
-    editProfile(token, cardHolder, cardNumber, expiryDate, cvc);
+    dispatch(setProfile(token, cardHolder, cardNumber, expiryDate, cvc));
   };
 
   return (

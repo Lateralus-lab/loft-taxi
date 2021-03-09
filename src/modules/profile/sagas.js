@@ -1,29 +1,17 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
-import { GET_PROFILE, EDIT_PROFILE, setProfile } from './actions';
-import { getServerCard, serverCard } from '../../redux/api';
+import { takeLatest, call } from 'redux-saga/effects';
+import { SET_PROFILE } from './actions';
+import { saveProfile } from '../../redux/api';
 
-export function* handleGetProfileSaga(action) {
+function* handleSaveProfileSaga(action) {
   try {
-    const profileData = yield call(getServerCard, action.payload.token);
-    const { id, ...data } = profileData;
+    const response = yield call(saveProfile, action.payload);
 
-    if (profileData.id) {
-      yield put(setProfile(data));
-    }
+    console.log(response);
   } catch (e) {
     console.log(e);
   }
 }
 
-export function* handleEditProfileSaga(action) {
-  const profileData = yield call(serverCard, action.payload);
-
-  if (profileData.success) {
-    yield put(setProfile(action.payload));
-  }
-}
-
 export function* profileSaga() {
-  yield takeLatest(GET_PROFILE, handleGetProfileSaga);
-  yield takeLatest(EDIT_PROFILE, handleEditProfileSaga);
+  yield takeLatest(SET_PROFILE, handleSaveProfileSaga);
 }

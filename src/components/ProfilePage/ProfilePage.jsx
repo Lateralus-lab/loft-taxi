@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileForm from './ProfileForm/ProfileForm';
-import CardSaved from './CardSaved/CardSaved';
+// import CardSaved from './CardSaved/CardSaved';
 
 const ProfilePage = () => {
   return (
