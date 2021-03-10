@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 import LogoCard from '../../svg/LogoCard';
 import IdCard from '../../svg/IdCard';
 import LabelCard from '../../svg/LabelCard';
@@ -9,11 +10,13 @@ const ProfileForm = ({ token, setProfile }) => {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvc, setCvc] = useState('');
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setProfile(cardHolder, cardNumber, expiryDate, cvc, token);
+    history.push('/main');
   };
 
   return (
