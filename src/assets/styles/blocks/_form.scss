@@ -13,14 +13,16 @@
   top: 50%;
   z-index: 2;
 
+  &--mainpage {
+    padding: 16px 20px;
+    top: 150px;
+    left: 24px;
+  }
+
   &--profile {
   padding: 60px 44px;
   max-width: 850px;
   width: 100%;
-  }
-
-  &--save {
-    max-width: 580px;
   }
 }
 
@@ -60,4 +62,9 @@
   &:hover {
     color: #FFA84F;
   }
+}
+
+.form__selectors {
+  display: flex;
+  flex-direction: column;
 }
