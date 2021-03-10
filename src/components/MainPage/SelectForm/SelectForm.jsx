@@ -5,11 +5,13 @@ import {
   Select,
   MenuItem,
   Button,
+  Paper,
 } from '@material-ui/core';
+import { Car } from './Car';
 
 const SelectForm = () => {
   return (
-    <form className="form form--mainpage" noValidate autoComplete="off">
+    <form className="form form--mainpage">
       <div className="form__selectors">
         <FormControl>
           <InputLabel>From</InputLabel>
@@ -28,9 +30,12 @@ const SelectForm = () => {
           </Select>
         </FormControl>
       </div>
-      <div>
-        <Button className="button button--form">Order</Button>
-      </div>
+      <Paper>
+        <Car type="standard" />
+        <div>
+          <Button className="button button--form">Order</Button>
+        </div>
+      </Paper>
     </form>
   );
 };
