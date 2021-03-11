@@ -6,6 +6,7 @@ import {
   MenuItem,
   Button,
   Paper,
+  Grid,
 } from '@material-ui/core';
 import { Car } from './Car';
 
@@ -30,12 +31,18 @@ const SelectForm = () => {
           </Select>
         </FormControl>
       </div>
-      <Paper>
-        <Car type="standard" />
+      <div className="car">
+        <Paper>
+          <Grid className="car__group" container spacind={2}>
+            <Car price={15} name="Standart" type="standard" />
+            <Car price={20} name="Premium" type="premium" />
+            <Car price={30} name="Business" type="business" />
+          </Grid>
+        </Paper>
         <div>
-          <Button className="button button--form">Order</Button>
+          <Button className="button">Order</Button>
         </div>
-      </Paper>
+      </div>
     </form>
   );
 };
