@@ -10,10 +10,6 @@ const SelectFormContainer = ({ addressList, getAddressList, profile }) => {
   const [locationsFrom, setLocationsFrom] = useState(addressList);
   const [locationsTo, setLocationsTo] = useState(addressList);
 
-  useEffect(() => {
-    getAddressList();
-  }, [getAddressList]);
-
   const handleLocationFromOnChange = (e) => {
     setLocationFrom(e.target.textContent);
     const inputValue = addressList.filter((el) => el !== e.target.textContent);
@@ -25,6 +21,10 @@ const SelectFormContainer = ({ addressList, getAddressList, profile }) => {
     const inputValue = addressList.filter((el) => el !== e.target.textContent);
     setLocationsTo(inputValue);
   };
+
+  useEffect(() => {
+    getAddressList();
+  }, [getAddressList]);
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   FormControl,
   InputLabel,
@@ -11,29 +11,29 @@ import {
 import { Car } from './Car';
 
 const SelectForm = ({
-  locationFrom,
-  locationTo,
+  locationsFrom,
+  locationsTo,
   handleLocationFromOnChange,
   handleLocationToOnChange,
 }) => {
+  const [openFrom, setOpenFrom] = useState(false);
+
   return (
     <form className="form form--mainpage">
       <div className="form__selectors">
         <FormControl>
           <InputLabel>From</InputLabel>
-          <Select>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirdty</MenuItem>
+          <Select value={locationsFrom} onChange={handleLocationFromOnChange}>
+            {locationsFrom.map((locationTo, index) => (
+              <MenuItem value={locationTo} key={index}>
+                {locationTo}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
         <FormControl>
           <InputLabel>To</InputLabel>
-          <Select>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirdty</MenuItem>
-          </Select>
+          <Select></Select>
         </FormControl>
       </div>
       <div className="car">
