@@ -6,6 +6,8 @@ export function* handleAddressListSaga() {
   try {
     const addressList = yield call(getServerAddressList);
 
+    console.log(addressList);
+
     if (addressList.addresses) {
       yield put(setAddressList(addressList.addresses));
     }

@@ -10,7 +10,12 @@ import {
 } from '@material-ui/core';
 import { Car } from './Car';
 
-const SelectForm = () => {
+const SelectForm = ({
+  locationFrom,
+  locationTo,
+  handleLocationFromOnChange,
+  handleLocationToOnChange,
+}) => {
   return (
     <form className="form form--mainpage">
       <div className="form__selectors">
