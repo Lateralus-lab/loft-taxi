@@ -34,7 +34,7 @@ const SelectForm = () => {
       <div className="car">
         <Paper>
           <Grid className="car__group" container spacind={2}>
-            <Car price={15} name="Standart" type="standard" />
+            <Car price={15} name="Standard" type="standard" />
             <Car price={20} name="Premium" type="premium" />
             <Car price={30} name="Business" type="business" />
           </Grid>

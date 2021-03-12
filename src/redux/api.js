@@ -44,3 +44,7 @@ export const saveProfile = async (profileData) => {
 
   return await fetchData(`${API_URL}/card`, params);
 };
+
+export const getServerAddressList = () => {
+  return fetchData(`${API_URL}/addressList`, {});
+};
